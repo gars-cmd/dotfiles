@@ -19,9 +19,8 @@
 ---
 - the icon on the notification are the png pics in the dunst-copy directory
 - the png pics are from [iconFinder](https://www.iconfinder.com/)
-- before to use the scripts you need to : ```bash
-chmod +x scriptname.sh
-```
+- before to use the scripts you need to :
+`chmod +x scriptname.sh` 
 
 ### kitty
 ---
