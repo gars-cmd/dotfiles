@@ -1,0 +1,113 @@
+# i3 config file (v4)
+
+
+exec_always --no-startup-id autotiling
+exec_always --no-startup-id picom --experimental-backends -b
+exec_always $xborder -c ~/xborder/config.json
+
+
+#display setup
+exec_always xrandr --output DP-1 --primary  --3440x1440 ; xrandr --output HDMI-1 --mode 1920x1080 --rotate right --right-of DP-1 --rate 60 ; xrandr --output eDP-1 --off
+
+
+workspace "1: GIGABYTE" output DP-1
+workspace "2: SAMSUNG" output HDMI-1
+
+# Basics
+smart_gaps on 
+smart_borders on
+set $inner_gaps 15
+set $outer_gaps 12
+set $term --no-startup-id kitty
+set $mod Mod4
+set $alt Mod1
+set $lock i3lock
+set $suspend sudo systemctl suspend
+set $xborder ~/xborder/xborders
+focus_follows_mouse yes
+exec --no-startup-id nitrogen --set-scaled ~/Pictures/Wallpapers/17rekqb27nl91.png
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+
+#use of the mouse to drag floating windows 
+floating_modifier $mod
+for_window [class="Qalculate-gtk" instance="qalculate-gtk"] floating enable
+
+#Gaps 
+for_window [class="^.*"] border pixel 0
+gaps inner $inner_gaps
+gaps outer $outer_gaps
+for_window [class="Ulauncher"] border none
+
+
+# Bindings
+bindsym $mod+Return     exec $term
+bindsym $mod+Escape     exec --no-startup-id $lock
+bindsym $mod+d          exec --no-startup-id ulauncher
+bindsym Print           exec --no-startup-id flameshot gui -p ~/Pictures/screenshots/
+bindsym XF86Calculator  exec --no-startup-id qalculate
+bindsym $mod+f          fullscreen toggle
+bindsym $mod+Shift+r    restart
+bindsym $mod+w          kill
+bindsym $mod+h          exec notify-send "$(date "+DATE: %D%nHOUR: %T")"
+bindsym $mod+c          exec notify-send "$(cal)"
+
+##Focus
+bindsym $mod+Left       focus left
+bindsym $mod+Right      focus right
+bindsym $mod+Up         focus up
+bindsym $mod+Down       focus down
+bindsym $mod+space      floating toggle 
+
+##Move 
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Up   move up
+bindsym $mod+Shift+Down move down
+
+##Resize mode 
+bindsym $mod+r          mode "resize"
+mode "resize"{
+bindsym Left            resize shrink width 10 px or 10 ppt
+bindsym Down            resize grow height 10 px or 10 ppt
+bindsym Up              resize shrink height 10 px or 10 ppt
+bindsym Right           resize grow width 10 px or 10 ppt
+bindsym Escape          mode "default"
+}
+
+
+#Media Control Binding 
+
+## Pulse Audio controls
+bindsym XF86AudioRaiseVolume    exec --no-startup-id ~/.config/dunst/volume.sh up 
+bindsym XF86AudioLowerVolume    exec --no-startup-id ~/.config/dunst/volume.sh down
+bindsym XF86AudioMute           exec --no-startup-id ~/.config/dunst/volume.sh mute 
+
+
+## Sreen brightness controls
+bindsym XF86MonBrightnessUp     exec xbacklight -inc 20 
+bindsym XF86MonBrightnessDown   exec xbacklight -dec 20 
+
+## Media player controls
+# bindsym XF86AudioPlay           exec playerctl play-pause
+# bindsym XF86AudioPause          exec playerctl play-pause
+# bindsym XF86AudioNext           exec playerctl next
+# bindsym XF86AudioPrev           exec playerctl previous
+
+bindsym XF86AudioPlay             exec --no-startup-id ~/.config/dunst/media.sh pplay
+bindsym XF86AudioPause            exec --no-startup-id ~/.config/dunst/media.sh pplay
+bindsym XF86AudioNext             exec --no-startup-id ~/.config/dunst/media.sh forw
+bindsym XF86AudioPrev             exec --no-startup-id ~/.config/dunst/media.sh back
+
+
+##Keyboard Layout
+ bindsym $alt+space             exec "setxkbmap -option 'grp:alt_space_toggle' -layout us,il" 
+
+
+## Colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #F4DDDD   #F4DDDD
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #8B98CD
+client.urgent           #2f343a #900000 #ffffff #900000   #fb4934
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
