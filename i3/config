@@ -7,7 +7,19 @@ exec_always $xborder -c ~/xborder/config.json
 
 
 #display setup
-exec_always xrandr --output DP-1 --primary  --3440x1440 ; xrandr --output HDMI-1 --mode 1920x1080 --rotate right --right-of DP-1 --rate 60 ; xrandr --output eDP-1 --off
+
+# if there main screen & vertical screen is connected 
+
+# if only main screen is connected 
+
+
+# else : there is no output screen screen connected 
+
+
+
+# exec_always xrandr --output DP-1 --primary  --3440x1440 ; xrandr --output HDMI-1 --mode 1920x1080 --rotate right --right-of DP-1 --rate 60 ; xrandr --output eDP-1 --off
+
+exec_always ~/.config/i3/checkMonitors.sh
 
 
 workspace "1: GIGABYTE" output DP-1
