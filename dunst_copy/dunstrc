@@ -89,7 +89,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 4
+    frame_width = 0
 
     # Defines color of the frame around the notification window.
 
@@ -316,7 +316,7 @@ separator_color= frame
     # foreground = ""#222222"
     background = "#cdd6f4aa"
     foreground = "#2b2d42"
-    timeout = 10
+    timeout = 4
     # Icon for notifications with low urgency, uncomment to enable
     icon = /home/gars/.config/dunst/fart_icon.png
 
@@ -326,7 +326,7 @@ separator_color= frame
     background = "#cdd6f4aa"
     foreground = "#2b2d42"
     
-    timeout = 10
+    timeout = 4
     # Icon for notifications with normal urgency, uncomment to enable
     icon = /home/gars/.config/dunst/ring_icon.png
 
