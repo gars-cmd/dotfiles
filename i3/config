@@ -1,9 +1,10 @@
 # i3 config file (v4)
 
-
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id picom --experimental-backends -b
 exec_always $xborder -c ~/xborder/config.json
+exec_always ~/.config/i3/checkMonitors.sh
+exec_always setxkbmap -option grp:alt_space us,il
 
 
 #display setup
@@ -18,8 +19,6 @@ exec_always $xborder -c ~/xborder/config.json
 
 
 # exec_always xrandr --output DP-1 --primary  --3440x1440 ; xrandr --output HDMI-1 --mode 1920x1080 --rotate right --right-of DP-1 --rate 60 ; xrandr --output eDP-1 --off
-
-exec_always ~/.config/i3/checkMonitors.sh
 
 
 workspace "1: GIGABYTE" output DP-1
@@ -96,13 +95,12 @@ bindsym XF86AudioMute           exec --no-startup-id ~/.config/dunst/volume.sh m
 
 
 ## Sreen brightness controls
-bindsym XF86MonBrightnessUp     exec xbacklight -inc 20 
-bindsym XF86MonBrightnessDown   exec xbacklight -dec 20 
+bindsym XF86MonBrightnessUp     exec light -A 5
+bindsym XF86MonBrightnessDown   exec light -U 5
 
-## Media player controls
 # bindsym XF86AudioPlay           exec playerctl play-pause
 # bindsym XF86AudioPause          exec playerctl play-pause
-# bindsym XF86AudioNext           exec playerctl next
+# bindsym XF86AudioNext notification from dunst for switch layout          exec playerctl next
 # bindsym XF86AudioPrev           exec playerctl previous
 
 bindsym XF86AudioPlay             exec --no-startup-id ~/.config/dunst/media.sh pplay
@@ -112,7 +110,10 @@ bindsym XF86AudioPrev             exec --no-startup-id ~/.config/dunst/media.sh 
 
 
 ##Keyboard Layout
- bindsym $alt+space             exec "setxkbmap -option 'grp:alt_space_toggle' -layout us,il" 
+bindsym $alt+space                exec --no-startup-id ~/.config/dunst/switch_layout.sh
+
+## Print Battery level
+bindsym $mod+b                    exec --no-startup-id ~/.config/dunst/battery.sh 
 
 
 ## Colors
