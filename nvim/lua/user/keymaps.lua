@@ -66,6 +66,7 @@ keymap("n","<A-g>","<cmd>lua require'telescope.builtin'.live_grep(require('teles
 
 --nvim-tree
 keymap("n","<C-n>",":NvimTreeToggle<cr>",opts)
+keymap("n","<C-h>",":NvimTreeFocus<cr>",opts)
 
 -- hop
 keymap("n", "<C-w>","<cmd>lua require'hop'.hint_words()<cr>",opts) --move the cursor to a specific word
