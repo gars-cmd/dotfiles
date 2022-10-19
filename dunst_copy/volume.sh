@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # You can call this script like this:
@@ -15,20 +14,21 @@ function is_mute {
 }
 
 function send_notification_u {
-    volume=`get_volume`
+    volume=$(get_volume)
     # Make the bar with the special character ─ (it's not dash -)
     # https://en.wikipedia.org/wiki/Box-drawing_character
-    bar=$(seq -s "𝄃" $(($volume / 5)) | sed 's/[0-9]//g')
+    bar=$(seq -s "𝄃" $((volume )) | sed 's/[0-9]//g')
     # Send the notification
     dunstify -i /home/gars/.config/dunst/volume_up_icon.png  -r 2593 -u normal "     $bar"
 }
 
 
 function send_notification_d {
-    volume=`get_volume`
+    volume=$(get_volume)
     # Make the bar with the special character ─ (it's not dash -)
     # https://en.wikipedia.org/wiki/Box-drawing_character
-    bar=$(seq -s "𝄃" $(($volume / 5)) | sed 's/[0-9]//g')
+    bar=$(seq -s "𝄃" $((volume )) | sed 's/[0-9]//g')
+
     # Send the notification
     dunstify -i /home/gars/.config/dunst/volume_down_icon.png  -r 2593 -u normal "     $bar"
 }
@@ -47,6 +47,6 @@ case $1 in
 	;;
     mute)
       pactl set-sink-mute 0 toggle
-      dunstify -i /home/gars/.config/dunst/mute_icon.png -t 8 -r 2593 -u normal "Mute"
+      dunstify -i /home/gars/.config/dunst/mute_icon.png  -r 2593 -u normal "     Mute"
 	;;
 esac
