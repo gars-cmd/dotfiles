@@ -24,7 +24,7 @@ exec_always setxkbmap -option grp:alt_space us,il
 workspace "1: GIGABYTE" output DP-1
 workspace "2: SAMSUNG" output HDMI-1
 
-# Basics
+## Basics
 smart_gaps on 
 smart_borders on
 set $inner_gaps 15
@@ -36,7 +36,7 @@ set $lock i3lock
 set $suspend sudo systemctl suspend
 set $xborder ~/xborder/xborders
 focus_follows_mouse yes
-exec --no-startup-id nitrogen --set-scaled ~/Pictures/Wallpapers/17rekqb27nl91.png
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 #use of the mouse to drag floating windows 
@@ -50,7 +50,7 @@ gaps outer $outer_gaps
 for_window [class="Ulauncher"] border none
 
 
-# Bindings
+##Bindings
 bindsym $mod+Return     exec $term
 bindsym $mod+Escape     exec --no-startup-id $lock
 bindsym $mod+d          exec --no-startup-id ulauncher
@@ -123,4 +123,5 @@ client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #8B98CD
 client.urgent           #2f343a #900000 #ffffff #900000   #fb4934
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
 
