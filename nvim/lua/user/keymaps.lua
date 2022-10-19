@@ -1,7 +1,5 @@
 local opts = { noremap = true, silent = true }
-
-local term_opts = { silent = true }
-
+--[[ local term_opts = { silent = true } ]]
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
@@ -40,7 +38,7 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
@@ -61,14 +59,27 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Telescope
-keymap("n","<A-f>","<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({}))<cr>", opts)
-keymap("n","<A-g>","<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes').get_dropdown({}))<cr>", opts)
+keymap(
+	"n",
+	"<A-f>",
+	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({}))<cr>",
+	opts
+)
+keymap(
+	"n",
+	"<A-g>",
+	"<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes').get_dropdown({}))<cr>",
+	opts
+)
 
 --nvim-tree
-keymap("n","<C-n>",":NvimTreeToggle<cr>",opts)
-keymap("n","<C-h>",":NvimTreeFocus<cr>",opts)
+keymap("n", "<C-n>", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<C-h>", ":NvimTreeFocus<cr>", opts)
 
 -- hop
-keymap("n", "<C-w>","<cmd>lua require'hop'.hint_words()<cr>",opts) --move the cursor to a specific word
-keymap("n", "<C-l>","<cmd>lua require'hop'.hint_vertical()<cr>",opts) --move the cursor in a vertical line
-keymap("n","gf","<cmd>lua vim.lsp.buf.formatting_sync()<cr>",opts) -- key binding to activate formatting of the code 
+keymap("n", "<A-w>", "<cmd>lua require'hop'.hint_words()<cr>", opts) --move the cursor to a specific word
+keymap("n", "<A-l>", "<cmd>lua require'hop'.hint_vertical()<cr>", opts) --move the cursor in a vertical line
+keymap("n", "gf", "<cmd>lua vim.lsp.buf.format()<cr>", opts) -- key binding to activate formatting of the code
+
+-- keymap for symbols-outlines plugin 
+keymap("n" , "<C-t>" ,":SymbolsOutline<cr>",opts)

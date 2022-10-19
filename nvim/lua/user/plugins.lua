@@ -69,11 +69,20 @@ return packer.startup(function(use)
 			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
 		end,
 	})
+	-- tag bar like plugin to show tree-function view
+	use("simrat39/symbols-outline.nvim")
 
 	--colorscheme
 	--[[ use("morhetz/gruvbox") ]]
-    use { "catppuccin/nvim", as = "catppuccin" }
-      
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+		config = function()
+			vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+			require("catppuccin").setup()
+			vim.api.nvim_command("colorscheme catppuccin")
+		end,
+	})
 
 	--cmp
 	use("hrsh7th/nvim-cmp")
@@ -103,6 +112,7 @@ return packer.startup(function(use)
 			require("lsp_lines").setup()
 		end,
 	})
+
 	--Telescope
 	use("nvim-telescope/telescope.nvim")
 
@@ -113,7 +123,7 @@ return packer.startup(function(use)
 	})
 	use("p00f/nvim-ts-rainbow")
 	use("windwp/nvim-ts-autotag") -- plugin for treesitter to auto close the html tags
-    use 'nvim-treesitter/nvim-treesitter-context' -- always show context of class/functions and more 
+	use("nvim-treesitter/nvim-treesitter-context") -- always show context of class/functions and more
 
 	--GIT
 	use("lewis6991/gitsigns.nvim")
@@ -122,6 +132,22 @@ return packer.startup(function(use)
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
+
+	-- Notification
+	use("rcarriga/nvim-notify")
+	use("MunifTanjim/nui.nvim")
+	use({
+		"folke/noice.nvim",
+		event = "VimEnter",
+		config = function()
+			require("noice").setup()
+		end,
+		requires = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
 	})
 
 	if PACKER_BOOTSTRAP then

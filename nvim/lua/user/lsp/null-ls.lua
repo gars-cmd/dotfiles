@@ -17,7 +17,9 @@ null_ls.setup({
     formatting.clang_format, --formatter for C language
     diagnostics.cppcheck , -- give diagnostics for c and cpp languages
     formatting.shfmt,
+    formatting.prettier,
     diagnostics.shellcheck,
+    diagnostics.eslint,
     -- diagnostics.flake8
   },
 })
