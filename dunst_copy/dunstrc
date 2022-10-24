@@ -314,7 +314,7 @@ separator_color= frame
     # Otherwise the "#" and following would be interpreted as a comment.
     # background = "#ffffffaa"
     # foreground = ""#222222"
-    background = "#cdd6f4aa"
+    background = "#dee2ffaa"
     foreground = "#2b2d42"
     timeout = 4
     # Icon for notifications with low urgency, uncomment to enable
@@ -323,7 +323,7 @@ separator_color= frame
 [urgency_normal]
     # background = "#ffffffaa"
     # foreground = ""#222222"
-    background = "#cdd6f4aa"
+    background = "#dee2ffaa"
     foreground = "#2b2d42"
     
     timeout = 4
@@ -333,7 +333,7 @@ separator_color= frame
 [urgency_critical]
     # background = "#ffffffaa"
     # foreground = "#222222"
-    background = "#cdd6f4aa"
+    background = "#dee2ffaa"
     foreground = "#465775"
     frame_color = "#ef6f6c"
     timeout = 10
