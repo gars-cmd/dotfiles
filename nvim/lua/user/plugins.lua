@@ -61,14 +61,6 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim") --add dot for space , line for indent and match coloration for brackets
 	use("nacro90/numb.nvim") --allow to moove to a line like : 60 without to press enter , work also number by number
 	use("NvChad/nvim-colorizer.lua") -- display the color in many formats (hex,rgb..)
-	use({
-		"phaazon/hop.nvim",
-		branch = "v2", -- optional but strongly recommended
-		config = function()
-			-- you can configure Hop the way you like here; see :h hop-config
-			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
-		end,
-	})
 	-- tag bar like plugin to show tree-function view
 	use("simrat39/symbols-outline.nvim")
 

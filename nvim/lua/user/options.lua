@@ -19,7 +19,7 @@ local options = {
   updatetime = 300,                        -- faster completion (4000ms default)
   writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
   expandtab = true,                        -- convert tabs to spaces
-  shiftwidth = 2,                          -- the number of spaces inserted for each indentation
+  shiftwidth = 4,                          -- the number of spaces inserted for each indentation
   tabstop = 4,                             -- insert 2 spaces for a tab
   cursorline = true,                       -- highlight the current line
   number = true,                           -- set numbered lines
@@ -45,3 +45,11 @@ vim.cmd [[set iskeyword+=-]]
 
 
 
+-- Modify from the theme the color of the num line  && the background color of nvim-tree
+vim.cmd([[
+augroup MyColors
+autocmd!
+autocmd ColorScheme * highlight LineNr guibg=NONE guifg=#68b0ab
+autocmd ColorScheme * highlight NvimTreeNormal guibg=NONE
+augroup end
+]])
