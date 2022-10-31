@@ -25,3 +25,4 @@
 ### kitty
 ---
 - Theme used : Catppuccin
+- Font used : Jetbrain
