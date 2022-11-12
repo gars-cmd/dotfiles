@@ -19,6 +19,7 @@ null_ls.setup({
     formatting.shfmt,
     formatting.prettier,
     diagnostics.shellcheck,
+    diagnostics.checkstyle,
     --[[ diagnostics.tsserver, ]]
     -- diagnostics.flake8
   },

@@ -1,0 +1,286 @@
+configuration {
+	modi:                       "drun";
+    show-icons:                 true;
+    display-drun:               "Dmenu:";
+    display-run:                "";
+    display-filebrowser:        "";
+    display-window:             "";
+	drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+	window-format:              "{w} · {c} · {t}";
+}
+
+* {
+  font: "CartographCF Nerd Font 16";
+  italic-font: "CartographCF Nerd Font Bold Italic 14";
+	rosewater: #F5E0DC;
+	flamingo: #F2CDCD;
+	pink: #F5C2E7;
+	mauve: #CBA6F7;
+	red: #F38BA8;
+	maroon: #EBA0AC;
+	peach: #FAB387;
+	yellow: #F9E2AF;
+	green: #A6E3A1;
+	teal: #94E2D5;
+	sky: #89DCEB;
+	sapphire: #74C7EC;
+	blue: #89B4FA;
+	lavender: #B4BEFE;
+    selectedColor: #FEEAFA;
+
+	text: #CDD6F4;
+	subtext1: #BAC2DE;
+	subtext0: #A6ADC8;
+	overlay2: #9399B2;
+	overlay1: #7F849C;
+	overlay0: #6C7086;
+	surface2: #585B70;
+	surface1: #45475A;
+	surface0: #313244;
+
+	base: #1E1E2E;
+	base-mod: #1E1E2E90;
+	mantle: #181825;
+	crust: #11111B;
+}
+
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  true;
+    width:                       2560px;
+    height:                      1440px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                var(base);
+    cursor:                      "default";
+    background-color:            var(base-mod);
+}
+
+mainbox {
+    enabled:                     true;
+    spacing:                     20px;
+    margin:                      0px;
+    padding:                     35%;
+    border:                      0px solid;
+    border-radius:               0px 0px 0px 0px;
+    border-color:                var(base);
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px;
+    border-radius:               0px;
+    border-color:                transparent;
+    background-color:            transparent;
+    text-color:                  var(text);
+    children:                    [ "prompt", "entry" ];
+}
+
+prompt {
+    font:                        var(italic-font);
+    enabled:                     true;
+    background-color:            inherit;
+    text-color:                  var(selectedColor);
+}
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         "::";
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+entry {
+    enabled:                     true;
+    background-color:            inherit;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "";
+    placeholder-color:           inherit;
+}
+
+
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       12;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               7px;
+    border-color:                var(base);
+    background-color:            transparent;
+    text-color:                  var(text);
+    cursor:                      "default";
+}
+
+scrollbar {
+    handle-width:                5px ;
+    handle-color:                var(blue);
+    border-radius:               0px;
+    background-color:            var(base);
+}
+
+
+element {
+    enabled:                     true;
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     5px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                var(base);
+    background-color:            transparent;
+    text-color:                  var(text);
+    cursor:                      pointer;
+}
+
+element normal.normal {
+    background-color:            transparent;
+    text-color:                  var(text);
+}
+
+element normal.urgent {
+    background-color:            transparent;
+    text-color:                  var(sapphire);
+}
+
+element normal.active {
+    background-color:            transparent;
+    text-color:                  var(green);
+}
+
+element selected.normal {
+    border: 0 0 0 4px solid;
+    border-radius: 15px;
+    border-color: var(selectedColor);
+    background-color:            var(selectedColor);
+    text-color:                  var(crust);
+}
+
+element selected.urgent {
+    border: 0 0 0 4px solid;
+    border-color: var(sapphire);
+    background-color:            var(mantle);
+    text-color:                  var(sapphire);
+}
+
+element selected.active {
+    border: 0 0 0 4px solid;
+    border-color: var(green);
+    background-color:            var(mantle);
+    text-color:                  var(green);
+}
+
+element alternate.normal {
+    background-color:            transparent;
+    text-color:                  var(text);
+}
+
+element alternate.urgent {
+    background-color:            transparent;
+    text-color:                  var(text);
+}
+
+element alternate.active {
+    background-color:            transparent;
+    text-color:                  var(text);
+}
+
+element-icon {
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        24px;
+    cursor:                      inherit;
+    padding: 5px 5px 5px 10px;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    highlight:                   inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+mode-switcher{
+    enabled:                     true;
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                var(base);
+    background-color:            transparent;
+    text-color:                  var(text);
+}
+
+button {
+    padding:                     10px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                var(base);
+    background-color:            var(base);
+    text-color:                  inherit;
+    cursor:                      pointer;
+}
+
+button selected {
+    background-color:            var(mantle);
+    text-color:                  var(text);
+}
+
+message {
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px 0px 0px 0px;
+    border-color:                var(base);
+    background-color:            transparent;
+    text-color:                  var(text);
+}
+
+textbox {
+    padding:                     100px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                var(base);
+    background-color:            var(base);
+    text-color:                  var(text);
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    highlight:                   none;
+    placeholder-color:           var(text);
+    blink:                       true;
+    markup:                      true;
+}
+error-message {
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                var(base);
+    background-color:            var(base);
+    text-color:                  var(text);
+}

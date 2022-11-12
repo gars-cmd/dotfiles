@@ -49,7 +49,10 @@ vim.cmd [[set iskeyword+=-]]
 vim.cmd([[
 augroup MyColors
 autocmd!
-autocmd ColorScheme * highlight LineNr guibg=NONE guifg=#68b0ab
-autocmd ColorScheme * highlight NvimTreeNormal guibg=NONE
+autocmd ColorScheme * highlight LineNr guibg=NONE guifg=#68b0ab "modify the color of the number line"
+autocmd ColorScheme * highlight NvimTreeNormal guibg=NONE " tree-nvim background to none "
+autocmd ColorScheme * highlight Pmenu guibg=NONE  " color of the cmp-nvim menu background to none
+autocmd ColorScheme * highlight cursorline guibg=#577590
 augroup end
 ]])
+

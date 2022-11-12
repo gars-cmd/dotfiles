@@ -5,7 +5,7 @@ exec_always --no-startup-id picom --experimental-backends -b
 exec_always $xborder -c ~/xborder/config.json
 exec_always ~/.config/i3/checkMonitors.sh
 exec_always setxkbmap -option grp:alt_space us,il
-
+exec_always greenclip daemon
 
 #display setup
 
@@ -53,14 +53,14 @@ for_window [class="Ulauncher"] border none
 ##Bindings
 bindsym $mod+Return     exec $term
 bindsym $mod+Escape     exec --no-startup-id $lock
-bindsym $mod+d          exec --no-startup-id ulauncher
+bindsym $mod+d          exec --no-startup-id rofi -show drun
 bindsym Print           exec --no-startup-id flameshot gui -p ~/Pictures/screenshots/
 bindsym XF86Calculator  exec --no-startup-id qalculate
 bindsym $mod+f          fullscreen toggle
 bindsym $mod+Shift+r    restart
 bindsym $mod+w          kill
 bindsym $mod+h          exec notify-send "$(date "+DATE: %D%nHOUR: %T")"
-bindsym $mod+c          exec notify-send "$(cal)"
+# bindsym $mod+c          exec notify-send "$(cal)"
 
 ##Focus
 bindsym $mod+Left       focus left
@@ -68,6 +68,7 @@ bindsym $mod+Right      focus right
 bindsym $mod+Up         focus up
 bindsym $mod+Down       focus down
 bindsym $mod+space      floating toggle 
+bindsym $mod+s          layout stacking
 
 ##Move 
 bindsym $mod+Shift+Left move left
@@ -108,12 +109,18 @@ bindsym XF86AudioPause            exec --no-startup-id ~/.config/dunst/media.sh 
 bindsym XF86AudioNext             exec --no-startup-id ~/.config/dunst/media.sh forw
 bindsym XF86AudioPrev             exec --no-startup-id ~/.config/dunst/media.sh back
 
+## system command 
+bindsym $mod+q                    exec --no-startup-id ~/.config/rofi/powermenu.sh 
+
+
 
 ##Keyboard Layout
 bindsym $alt+space                exec --no-startup-id ~/.config/dunst/switch_layout.sh
 
 ## Print Battery level
 bindsym $mod+b                    exec --no-startup-id ~/.config/dunst/battery.sh 
+
+bindsym $mod+c                    exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 
 ## Colors
