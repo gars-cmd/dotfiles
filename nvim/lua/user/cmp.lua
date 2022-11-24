@@ -135,7 +135,7 @@ cmp.setup {
   --[[   native_menu = false, ]]
   --[[ }, ]]
   completion = cmp.config.window.bordered({
-      winhighlight = vim.cmd "highlight! BorderBG guibg=NONE ",
+      winhighlight = vim.cmd "highlight! BorderBG guibg=NONE guifg=#001220 ",
     }),
 }
 }

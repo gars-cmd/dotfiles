@@ -65,17 +65,7 @@ return packer.startup(function(use)
 	use("simrat39/symbols-outline.nvim")
 
 	--colorscheme
-	--[[ use("morhetz/gruvbox") ]]
-	use{
-		"catppuccin/nvim",
-		as = "catppuccin",
-		config = function()
-            require("catppuccin").setup{
-                flavour = "mocha" -- mocha , macchiato , frappe , latte 
-                }
-            vim.api.nvim_command "colorscheme catppuccin"
-        end
-	}
+    use("folke/tokyonight.nvim")
 
 	--cmp
 	use("hrsh7th/nvim-cmp")
@@ -91,6 +81,11 @@ return packer.startup(function(use)
 			"kyazdani42/nvim-web-devicons",
 		},
 	})
+
+    -- fancy command-menu
+    use ('gelguy/wilder.nvim')
+
+
 	--snippets
 	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets")
@@ -99,19 +94,13 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig")
 	use("williamboman/nvim-lsp-installer")
 	use("jose-elias-alvarez/null-ls.nvim")
-	--[[ use({ -- plugin to toggle diagnostics ]]
-	--[[ 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim", ]]
-	--[[ 	config = function() ]]
-	--[[ 		require("lsp_lines").setup() ]]
-	--[[ 	end, ]]
-	--[[ }) ]]
 
     --another way to toggle errors
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
     }
-    --[[ display error with colors ]]
+    -- display error with colors 
     use 'folke/lsp-colors.nvim'
 
 	--Telescope
@@ -143,21 +132,8 @@ return packer.startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
-	-- Notification
-	--[[ use("rcarriga/nvim-notify") ]]
-	--[[ use("MunifTanjim/nui.nvim") ]]
-	--[[ use({ ]]
-	--[[ 	"folke/noice.nvim", ]]
-	--[[ 	event = "VimEnter", ]]
-	--[[ 	config = function() ]]
-	--[[ 		require("noice").setup() ]]
-	--[[ 	end, ]]
-	--[[ 	requires = { ]]
-	--[[ 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries ]]
-	--[[ 		"MunifTanjim/nui.nvim", ]]
-	--[[ 		"rcarriga/nvim-notify", ]]
-	--[[ 	}, ]]
-	--[[ }) ]]
+    --toggleTerm
+    use("akinsho/toggleterm.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

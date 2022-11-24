@@ -58,6 +58,13 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
+
+-- ThePrimeagen tip to center next search 
+keymap("n" , "zz", "<C-u> <C-u>" , opts)
+keymap("n" , "zz", "<C-d> <C-d>" , opts)
+keymap("n" , "n" , "nzz" , opts)
+
+
 -- Telescope
 keymap(
 	"n",
@@ -85,3 +92,7 @@ keymap("n", "gt" , ":TroubleToggle<cr>" , opts)
 
 -- keymap for symbols-outlines plugin 
 keymap("n" , "<C-t>" ,":SymbolsOutline<cr>",opts)
+
+--keymaps for toggleterm 
+keymap("n" , "<C-t>" , ":ToggleTerm<cr>" , opts)
+

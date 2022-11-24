@@ -17,6 +17,7 @@ configuration {
 	sapphire: #74C7EC;
 	blue: #89B4FA;
 	lavender: #B4BEFE;
+    selectedColor: #FBAE3C;
 
 	text: #CDD6F4;
 	subtext1: #BAC2DE;
@@ -82,7 +83,7 @@ prompt {
     enabled:                     true;
     font:                        var(prompt-font);
     background-color:            transparent;
-    text-color:                  var(text);
+    text-color:                  var(selectedColor);
 }
 
 /*****----- Message -----*****/
@@ -92,7 +93,7 @@ message {
     padding:                     var(message-padding);
     border-radius:               var(message-border-radius);
     background-color:            transparent;
-    text-color:                  var(text);
+    text-color:                  var(selectedColor);
 }
 textbox {
     font:                        var(textbox-font);
@@ -127,7 +128,7 @@ element {
     padding:                     var(element-padding);
     border-radius:               var(element-border-radius);
     background-color:            var(base);
-    text-color:                  var(text);
+    text-color:                  var(selectedColor);
     cursor:                      pointer;
 }
 element-text {
@@ -139,6 +140,6 @@ element-text {
     horizontal-align:            0.5;
 }
 element selected.normal {
-    background-color:            var(lavender);
+    background-color:            var(selectedColor);
     text-color:                  var(base);
 }

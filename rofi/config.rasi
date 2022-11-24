@@ -26,7 +26,7 @@ configuration {
 	sapphire: #74C7EC;
 	blue: #89B4FA;
 	lavender: #B4BEFE;
-    selectedColor: #FEEAFA;
+    selectedColor: #FBAE3C;
 
 	text: #CDD6F4;
 	subtext1: #BAC2DE;

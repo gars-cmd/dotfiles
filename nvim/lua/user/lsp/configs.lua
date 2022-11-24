@@ -5,7 +5,7 @@ end
 
 local lspconfig = require("lspconfig")
 
-local servers = { "jsonls", "sumneko_lua" , "pyright" , "clangd" , "html" , "cssls" , "marksman" , "bashls"  , "tsserver" , "angularls" , "racket_langserver"  }
+local servers = { "jsonls", "sumneko_lua" , "pyright" , "clangd" , "html" , "cssls" , "marksman" , "bashls"  , "tsserver" , "angularls" , "racket_langserver" ,"jdtls"  }
 
 lsp_installer.setup({
   ensure_installed = servers,

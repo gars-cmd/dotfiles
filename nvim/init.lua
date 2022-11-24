@@ -4,7 +4,6 @@ require "user.plugins"
 require "user.cmp"
 require "user.lsp"
 require "user.colorscheme"
--- vim.cmd "colorscheme gruvbox"
 require "user.telescope"
 require "user.treesitter"
 require "user.autopairs"
@@ -18,9 +17,5 @@ require "user.colorizer"
 require "user.ts-autotag"
 require "user.treesitter-context"
 require "user.symbols_outline"
-
-
-
-
-
-
+require "user.toggleterm"
+require "user.wilder"
