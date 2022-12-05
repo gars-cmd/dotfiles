@@ -1,9 +1,9 @@
-![samples](https://github.com/gars-cmd/tree/master/dotfiles_pics/2022-11-26_21-50.png?raw=true)
-![samples1](https://github.com/gars-cmd/tree/master/dotfiles_pics/2022-11-26_22-13.png?raw=true)
-![samples2](https://github.com/gars-cmd/tree/master/dotfiles_pics/2022-11-26_22-14.png?raw=true)
-![samples3](https://github.com/gars-cmd/tree/master/dotfiles_pics/2022-11-27_00-09.png?raw=true)
-![samples4](https://github.com/gars-cmd/tree/master/dotfiles_pics/2022-11-27_00-09_1.png?raw=true)
-![samples6](https://github.com/gars-cmd/tree/master/dotfiles_pics/2022-12-05_11-05.png?raw=true)
+![samples](https://github.com/gars-cmd/tree/master/dotfiles_pics/2022-11-26_21-50.png)
+![samples1](https://github.com/gars-cmd/tree/master/dotfiles_pics/2022-11-26_22-13.png)
+![samples2](https://github.com/gars-cmd/tree/master/dotfiles_pics/2022-11-26_22-14.png)
+![samples3](https://github.com/gars-cmd/tree/master/dotfiles_pics/2022-11-27_00-09.png)
+![samples4](https://github.com/gars-cmd/tree/master/dotfiles_pics/2022-11-27_00-09_1.png)
+![samples6](https://github.com/gars-cmd/tree/master/dotfiles_pics/2022-12-05_11-05.png)
 
 
 
