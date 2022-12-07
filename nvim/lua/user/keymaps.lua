@@ -59,10 +59,19 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 
--- ThePrimeagen tip to center next search 
-keymap("n" , "zz", "<C-u> <C-u>" , opts)
-keymap("n" , "zz", "<C-d> <C-d>" , opts)
-keymap("n" , "n" , "nzz" , opts)
+ -- ThePrimeagen tip to center CTRL u (go half up) and CTRL d (go half down)
+keymap("n" , "<C-u>" , "<C-u>zz",opts)
+keymap("n" , "<C-d>" , "<C-d>zz",opts)
+
+-- ThePrimeagen tip to center the view of search results
+keymap("n" , "n" , "nzzzv",opts)
+keymap("n" , "N" , "Nzzzv",opts)
+
+
+
+-- ThePrimeagen tip to keep what is in the yank register after deleting
+keymap("i" , "<C-p>" , "\"_dP",opts)
+
 
 
 -- Telescope

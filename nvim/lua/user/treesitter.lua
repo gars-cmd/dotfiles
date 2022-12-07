@@ -4,6 +4,8 @@ if not status_ok then
 end
 
 
+
+
 configs.setup{
   ensure_installed = "all", -- one of "all" or a list of languages
   ignore_install = { "" }, -- List of parsers to ignore installing

@@ -3,6 +3,7 @@ local util = require 'lspconfig.util'
 local bin_name = 'marksman'
 local cmd = { bin_name, 'server' }
 
+
 return {
   default_config = {
     cmd = cmd,

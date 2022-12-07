@@ -19,7 +19,7 @@ end
 vim.cmd([[
   augroup packer_user_config
   autocmd!
-  autocmd BufWritePost plugins.lua source <afile> | PackerSync
+
   augroup end
 ]])
 
@@ -56,24 +56,14 @@ return packer.startup(function(use)
 			require("Comment").setup()
 		end,
 	})
+    use("karb94/neoscroll.nvim") -- smooth scroll 
 	use("JoosepAlviste/nvim-ts-context-commentstring") --support comments for many languages
 	use("kyazdani42/nvim-web-devicons") --nice icons/glyphs
 	use("lukas-reineke/indent-blankline.nvim") --add dot for space , line for indent and match coloration for brackets
 	use("nacro90/numb.nvim") --allow to moove to a line like : 60 without to press enter , work also number by number
 	use("NvChad/nvim-colorizer.lua") -- display the color in many formats (hex,rgb..)
-	-- tag bar like plugin to show tree-function view
-	use("simrat39/symbols-outline.nvim")
-
-	--colorscheme
-    use("folke/tokyonight.nvim")
-
-	--cmp
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("saadparwaiz1/cmp_luasnip")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-nvim-lua")
+	use("simrat39/symbols-outline.nvim") -- tag bar like plugin to show tree-function view
+    use("folke/tokyonight.nvim") --colorscheme
 	use({
 		"kyazdani42/nvim-tree.lua",
 
@@ -82,29 +72,46 @@ return packer.startup(function(use)
 		},
 	})
 
-    -- fancy command-menu
-    use ('gelguy/wilder.nvim')
+    use ('gelguy/wilder.nvim')-- fancy command-menu
 
+	--LSP support
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        requires = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
 
-	--snippets
-	use("L3MON4D3/LuaSnip")
-	use("rafamadriz/friendly-snippets")
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-buffer'},
+            {'hrsh7th/cmp-path'},
+            {'saadparwaiz1/cmp_luasnip'},
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'hrsh7th/cmp-nvim-lua'},
 
-	--LSP
-	use("neovim/nvim-lspconfig")
-	use("williamboman/nvim-lsp-installer")
+            -- Snippets
+            {'L3MON4D3/LuaSnip'},
+            {'rafamadriz/friendly-snippets'},
+        }
+    }
+	--[[ use("neovim/nvim-lspconfig") ]]
+ --[[    use { "williamboman/mason.nvim" } ]]
+	--[[ use("williamboman/nvim-lsp-installer") ]]
 	use("jose-elias-alvarez/null-ls.nvim")
+    use("onsails/lspkind.nvim")
+
+
+
 
     --another way to toggle errors
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
     }
-    -- display error with colors 
-    use 'folke/lsp-colors.nvim'
-
-	--Telescope
-	use("nvim-telescope/telescope.nvim")
+    use 'folke/lsp-colors.nvim' -- display error with colors 
+	use("nvim-telescope/telescope.nvim") --Telescope
 
 	--Fast move with Leap
 	use({
@@ -123,17 +130,14 @@ return packer.startup(function(use)
 	use("windwp/nvim-ts-autotag") -- plugin for treesitter to auto close the html tags
 	use("nvim-treesitter/nvim-treesitter-context") -- always show context of class/functions and more
 
-	--GIT
-	use("lewis6991/gitsigns.nvim")
+	use("lewis6991/gitsigns.nvim") --GIT
 
 	-- StatusBar
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
-
-    --toggleTerm
-    use("akinsho/toggleterm.nvim")
+    use("akinsho/toggleterm.nvim") --toggleTerm
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
