@@ -2,8 +2,7 @@ require "user.options"
 require "user.keymaps"
 require "user.plugins"
 require "user.cmp"
-require("user.mason-config")
---[[ require "user.lsp" ]]
+require "user.mason-config"
 require "user.lsp-zero"
 require "user.colorscheme"
 require "user.telescope"
@@ -21,4 +20,3 @@ require "user.treesitter-context"
 require "user.symbols_outline"
 require "user.toggleterm"
 require "user.wilder"
-

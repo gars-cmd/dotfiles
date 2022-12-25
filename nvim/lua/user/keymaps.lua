@@ -5,8 +5,7 @@ local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
 --keymap("", "<Space>", "<Nop>", opts)
---vim.g.mapleader = " "
---vim.g.maplocalleader = " "
+vim.g.mapleader = " "
 
 -- Modes
 --   normal_mode = "n",
@@ -24,6 +23,9 @@ local keymap = vim.api.nvim_set_keymap
 -- keymap("n", "<C-k>", "<C-w>k", opts)
 -- keymap("n", "<C-l>", "<C-w>l", opts)
 
+-- it's like to do [ <- ] at every start line bellow  
+keymap("n" , "J" , "mzJ`z", opts)
+
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
@@ -32,10 +34,6 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
--- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
 -- Press jk fast to exit insert mode
@@ -53,10 +51,8 @@ keymap("v", "p", '"_dP', opts)
 -- Visual Block --
 
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+keymap("v", "J", ":move '>+1<CR>gv-gv", opts)
+keymap("v", "K", ":move '<-2<CR>gv-gv", opts)
 
 
  -- ThePrimeagen tip to center CTRL u (go half up) and CTRL d (go half down)
@@ -67,12 +63,14 @@ keymap("n" , "<C-d>" , "<C-d>zz",opts)
 keymap("n" , "n" , "nzzzv",opts)
 keymap("n" , "N" , "Nzzzv",opts)
 
-
-
 -- ThePrimeagen tip to keep what is in the yank register after deleting
-keymap("i" , "<C-p>" , "\"_dP",opts)
+keymap("x" , "<leader>p" , "\"_dP", opts)
 
 
+-- yank into the system register 
+keymap("n" , "<leader>y", "\"+y",opts)
+keymap("v" , "<leader>y", "\"+y",opts)
+keymap("n" , "<leader>Y", "\"+y",opts)
 
 -- Telescope
 keymap(
@@ -100,7 +98,7 @@ keymap("n", "gf", "<cmd>lua vim.lsp.buf.format()<cr>", opts) -- key binding to a
 keymap("n", "gt" , ":TroubleToggle<cr>" , opts)
 
 -- keymap for symbols-outlines plugin 
-keymap("n" , "<C-t>" ,":SymbolsOutline<cr>",opts)
+keymap("n" , "<A-t>" ,":SymbolsOutline<cr>",opts)
 
 --keymaps for toggleterm 
 keymap("n" , "<C-t>" , ":ToggleTerm<cr>" , opts)
