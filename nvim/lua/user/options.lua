@@ -1,3 +1,4 @@
+
 local options = {
     backup = false,				             --create backup of the file
     clipboard = "unnamedplus",      	     -- allows neovim to access the system clipboard
@@ -59,9 +60,6 @@ autocmd ColorScheme * highlight FloatBorder guibg=#001220 guifg=#FBAE3C "color o
 autocmd ColorScheme * highlight Normal  guibg=#001220 "override the theme background 
 autocmd ColorScheme * highlight NonText guibg=#001220 "override the theme background 
 autocmd ColorScheme * highlight NormalFloat guibg=#001220  "override the bg of the cmp popup
-
-
 " autocmd ColorScheme * highlight cursorline guibg=none
 augroup end
 ]])
-

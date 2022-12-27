@@ -1,46 +1,138 @@
+local present, lualine = pcall(require, "lualine")
+if not present then
+  return
+end
 
-
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = 'rose-pine',
-    section_separators = { left = '', right = '' },
-    component_separators = { left = '', right = '' },
-    -- component_separators = { left = '', right = ''},
-    -- section_separators = { left = '', right = ''},
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
+local layout = {
+  lualine_a = {
+    {
+      function()
+        return ""
+      end,
+      separator = { left = "", right = "" },
     },
-    ignore_focus = {},
-    always_divide_middle = true,
-    globalstatus = false,
-    refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
-    }
   },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+  lualine_b = {
+    {
+      "filetype",
+      icon_only = true,
+      colored = true,
+      color = { bg = "", fg = "" },
+    },
+    {
+      "filename",
+      color = { bg = "", fg = "StatusLine" },
+      separator = { left = "", right = "" },
+    },
+    {
+      "branch",
+      icon = "",
+      color = { bg = "#242735", fg = "#FBAE3C" },
+      separator = { left = "", right = "" },
+    },
+    {
+      "diff",
+      colored = true,
+      symbols = {
+        added = " ",
+        modified = " ",
+        removed = " ",
+      },
+      color = { bg = "#001220" },
+      separator = { left = "", right = "" },
+    },
   },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
+  lualine_c = {
+    {
+      function()
+        return ""
+      end,
+      color = { bg = "#ebbcba", fg = "#121319" },
+      separator = { left = "", right = "" },
+    },
+    {
+      "diagnostics",
+      sources = { "nvim_lsp" },
+      sections = {
+        "info",
+        "error",
+        "warn",
+        "hint",
+      },
+      diagnostic_color = {
+        error = { fg = "#eb6f92", bg = "#0f111a" },
+        warn = { fg = "DiagnosticWarn", bg = "#0f111a" },
+        info = { fg = "DiaganosticInfo", bg = "#0f111a" },
+        hint = { fg = "#9ccfd8", bg = "#0f111a" },
+      },
+      colored = true,
+      update_in_insert = true,
+      always_visible = false,
+      symbols = {
+        error = " ",
+        warn = " ",
+        hint = " ",
+        info = " ",
+      },
+      separator = { left = "", right = "" },
+    },
   },
-  tabline = {},
-  winbar = {},
-  inactive_winbar = {},
-  extensions = {}
+  lualine_x = {},
+  lualine_y = {},
+  lualine_z = {
+    {
+      "filesize",
+      color = "StatusLine",
+      separator = { left = "", right = "" },
+    },
+    {
+      function()
+        return ""
+      end,
+      separator = { left = "", right = "" },
+      color = { bg = "#ebbcba" },
+    },
+    {
+      "progress",
+      color = "StatusLine",
+    },
+    {
+      function()
+        return ""
+      end,
+      separator = { left = "", right = "" },
+      color = { bg = "#ebbcba" },
+    },
+    {
+      "location",
+      color = "StatusLine",
+    },
+    {
+      function()
+        return ""
+      end,
+      separator = { left = "", right = "" },
+      color = { bg = "#ebbcba" },
+    },
+  },
 }
 
+local no_layout = {
+  lualine_a = {},
+  lualine_b = {},
+  lualine_c = {},
+  lualine_x = {},
+  lualine_y = {},
+  lualine_z = {},
+}
 
+lualine.setup({
+  sections = layout,
+  inactive_sections = no_layout,
+  options = {
+    icons_enabled = true,
+    globalstatus = false,
+    disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
+    always_divide_middle = true,
+  },
+})
