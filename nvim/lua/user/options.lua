@@ -52,12 +52,13 @@ vim.cmd [[set iskeyword+=-]]
 vim.cmd([[
 augroup MyColors
 autocmd!
-autocmd ColorScheme * highlight LineNr guibg=NONE guifg=#FBAE3C "modify the color of the number line"
-autocmd ColorScheme * highlight NvimTreeNormal guibg=NONE " tree-nvim background to none "
-autocmd ColorScheme * highlight Pmenu guibg=NONE  guifg=#FBAE3C" color of the nvim-cmp 
+autocmd ColorScheme * highlight LineNr guibg=#001220 guifg=#FBAE3C "modify the color of the number line"
+autocmd ColorScheme * highlight NvimTreeNormal guibg=#001220 " tree-nvim background to none "
+autocmd ColorScheme * highlight Pmenu guibg=#001220  guifg=#FBAE3C" color of the nvim-cmp 
 autocmd ColorScheme * highlight FloatBorder guibg=#001220 guifg=#FBAE3C "color of the border and the background of the border
 autocmd ColorScheme * highlight Normal  guibg=#001220 "override the theme background 
 autocmd ColorScheme * highlight NonText guibg=#001220 "override the theme background 
+autocmd ColorScheme * highlight NormalFloat guibg=#001220  "override the bg of the cmp popup
 
 
 " autocmd ColorScheme * highlight cursorline guibg=none

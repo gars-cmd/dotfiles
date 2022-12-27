@@ -1,3 +1,4 @@
+
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
     return
@@ -130,7 +131,7 @@ cmp.setup {
         border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
 
         completion = cmp.config.window.bordered({
-            winhighlight = vim.cmd "highlight! BorderBG guibg=NONE guifg=#001220 ",
+            winhighlight = vim.cmd "highlight! BorderBG guibg=#001220 guifg=#001220 ",
         }),
     }
 }
