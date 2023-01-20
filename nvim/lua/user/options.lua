@@ -49,17 +49,24 @@ vim.cmd [[set iskeyword+=-]]
 
 
 
--- Modify from the theme the color of the num line  && the background color of nvim-tree
+-- Modification from the theme the color of the num line  && the background color of nvim-tree
 vim.cmd([[
 augroup MyColors
 autocmd!
-autocmd ColorScheme * highlight LineNr guibg=#001220 guifg=#FBAE3C "modify the color of the number line"
-autocmd ColorScheme * highlight NvimTreeNormal guibg=#001220 " tree-nvim background to none "
-autocmd ColorScheme * highlight Pmenu guibg=#001220  guifg=#FBAE3C" color of the nvim-cmp 
-autocmd ColorScheme * highlight FloatBorder guibg=#001220 guifg=#FBAE3C "color of the border and the background of the border
-autocmd ColorScheme * highlight Normal  guibg=#001220 "override the theme background 
-autocmd ColorScheme * highlight NonText guibg=#001220 "override the theme background 
-autocmd ColorScheme * highlight NormalFloat guibg=#001220  "override the bg of the cmp popup
+"modify the color of the number line"
+autocmd ColorScheme * highlight LineNr guibg=#001220 guifg=#FBAE3C 
+" tree-nvim background to none "
+autocmd ColorScheme * highlight NvimTreeNormal guibg=#001220 
+" color of the nvim-cmp 
+autocmd ColorScheme * highlight Pmenu guibg=#001220  guifg=#FBAE3C
+"color of the border and the background of the border
+autocmd ColorScheme * highlight FloatBorder guibg=#001220 guifg=#FBAE3C 
+"override the theme background 
+autocmd ColorScheme * highlight Normal  guibg=#001220
+ "override the theme background 
+autocmd ColorScheme * highlight NonText guibg=#001220
+"override the bg of the cmp popup
+autocmd ColorScheme * highlight NormalFloat guibg=#001220
 " autocmd ColorScheme * highlight cursorline guibg=none
 augroup end
 ]])

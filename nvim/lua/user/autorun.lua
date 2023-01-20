@@ -1,16 +1,28 @@
-local attach_to_buffer = function(output_bufnr, pattern, command)
+
+local attach_to_buffer = function(pattern, command)
     vim.api.nvim_create_autocmd("BufWritePost", {
         group = vim.api.nvim_create_augroup("AutoRunFile", { clear = true }),
-        pattern = pattern, --define a pattern for which fiel will do the autorun
+        pattern = pattern,
         callback = function()
-            local append_data = function(_, data)
+            --[[ local win_id = vim.api.nvim_get_current_win() ]]
+            local curr_width = vim.api.nvim_win_get_width(0) or 100
+            local curr_height =vim.api.nvim_win_get_height(0) or 100
+            local new_buff = vim.api.nvim_create_buf(false, true)
+            local win_id = vim.api.nvim_open_win(new_buff, true, {
+            relative = "editor",
+            width = math.floor(curr_width * 0.5),
+            height = math.floor(curr_height * 0.5),
+            row = 0,
+            col = 0,
+            border = "rounded",
+            style = "minimal",
+            })
+            vim.api.nvim_set_current_win(win_id)
+            local function append_data(_, data)
                 if data then
-                    vim.api.nvim_buf_set_lines(output_bufnr, -1, -1, false, data)
+                    vim.api.nvim_buf_set_lines(new_buff, -1, -1, false, data)
                 end
             end
-            vim.api.nvim_buf_set_lines(output_bufnr, 0, -1, false, { "===================",
-                "running_file output: ",
-                "===================" })
             vim.fn.jobstart(command, {
                 stdout_buffered = true,
                 on_stdout = append_data,
@@ -20,11 +32,9 @@ local attach_to_buffer = function(output_bufnr, pattern, command)
     })
 end
 
-
-attach_to_buffer(31, "*.py", { "python3", "main.py" })
+--[[ attach_to_buffer("*.py", { "python3", "main.py" }) ]]
 vim.api.nvim_create_user_command("AutoRun", function()
-    print "AutRun start now... "
-    local bufnr = vim.fn.input "Bufnr: "
+    print "AutoRun start now... "
     local filename = vim.api.nvim_call_function("bufname", {})
     local extension = string.match(filename, "%.([^%.]*)$")
     local pattern = "*." .. extension
@@ -41,9 +51,5 @@ vim.api.nvim_create_user_command("AutoRun", function()
         pattern = vim.fn.input "pattern: "
         command = vim.fn.input "command: "
     end
-
-
-    --[[ local pattern = vim.fn.input "pattern: " ]]
-    --[[ local command = vim.split(vim.fn.input "command: ", " ") ]]
-    attach_to_buffer(tonumber(bufnr), pattern, command)
+    attach_to_buffer(pattern, command)
 end, {})
