@@ -4,23 +4,37 @@ local attach_to_buffer = function(pattern, command)
         group = vim.api.nvim_create_augroup("AutoRunFile", { clear = true }),
         pattern = pattern,
         callback = function()
-            --[[ local win_id = vim.api.nvim_get_current_win() ]]
-            local curr_width = vim.api.nvim_win_get_width(0) or 100
-            local curr_height =vim.api.nvim_win_get_height(0) or 100
-            local new_buff = vim.api.nvim_create_buf(false, true)
-            local win_id = vim.api.nvim_open_win(new_buff, true, {
+            -- get dimensions
+            local width = vim.api.nvim_get_option("columns")
+            local height = vim.api.nvim_get_option("lines")
+
+             -- calculate our floating window size
+             local win_height = math.ceil(height * 0.8 - 4)
+             local win_width = math.ceil(width * 0.8)
+
+            -- and its starting position
+            local row = math.ceil((height - win_height) / 2 - 1)
+            local col = math.ceil((width - win_width) / 2)
+
+            -- create a buffer to write into 
+            local buff = vim.api.nvim_create_buf(false, true)
+
+            -- to be deleted when hidden
+            vim.api.nvim_buf_set_option(buff, 'bufhidden', 'wipe')
+
+            local win_id = vim.api.nvim_open_win(buff, true, {
             relative = "editor",
-            width = math.floor(curr_width * 0.5),
-            height = math.floor(curr_height * 0.5),
-            row = 0,
-            col = 0,
             border = "rounded",
             style = "minimal",
+            width = win_width ,
+            height = win_height ,
+            row = row ,
+            col = col ,
             })
             vim.api.nvim_set_current_win(win_id)
             local function append_data(_, data)
                 if data then
-                    vim.api.nvim_buf_set_lines(new_buff, -1, -1, false, data)
+                    vim.api.nvim_buf_set_lines(buff, -1, -1, false, data)
                 end
             end
             vim.fn.jobstart(command, {
