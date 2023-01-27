@@ -27,7 +27,7 @@ local layout = {
     {
       "branch",
       icon = "",
-      color = { bg = "#c4a7e7", fg = "#001220" },
+      color = { bg = "#81b29a", fg = "#242933" },
       separator = { left = "", right = "" },
     },
     {
@@ -38,7 +38,7 @@ local layout = {
         modified = " ",
         removed = " ",
       },
-      color = { bg = "#001220" },
+      color = { bg = "#242933" },
       separator = { left = "", right = "" },
     },
   },
@@ -47,7 +47,7 @@ local layout = {
       function()
         return ""
       end,
-      color = { bg = "#31748f", fg = "#121319" },
+      color = { bg = "#f4f1de", fg = "#121319" },
       separator = { left = "", right = "" },
     },
     {
@@ -90,7 +90,7 @@ local layout = {
         return ""
       end,
       separator = { left = "", right = "" },
-      color = { bg = "#eb6f92" },
+      color = { bg = "#D08770" },
     },
     {
       "progress",
@@ -101,7 +101,7 @@ local layout = {
         return ""
       end,
       separator = { left = "", right = "" },
-      color = { bg = "#e0def4" },
+      color = { bg = "#D08770" },
     },
     {
       "location",
@@ -112,7 +112,7 @@ local layout = {
         return ""
       end,
       separator = { left = "", right = "" },
-      color = { bg = "#f6c177" },
+      color = { bg = "#D08770" },
     },
   },
 }

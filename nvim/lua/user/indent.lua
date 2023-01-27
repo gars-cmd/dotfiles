@@ -1,5 +1,5 @@
 
-vim.opt.list = true
+vim.opt.list = false
 --[[ vim.opt.listchars:append "eol:↴" ]]
 --[[ vim.opt.listchars:append "tab:" ]]
 

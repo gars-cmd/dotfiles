@@ -63,16 +63,21 @@ return packer.startup(function(use)
     use("nacro90/numb.nvim") --allow to moove to a line like : 60 without to press enter , work also number by number
     use("NvChad/nvim-colorizer.lua") -- display the color in many formats (hex,rgb..)
     use("simrat39/symbols-outline.nvim") -- tag bar like plugin to show tree-function view
-    -- use("folke/tokyonight.nvim") --colorscheme
-    --[[ use("rebelot/kanagawa.nvim") ]]
+
+    --COLORSCHEME
+ 
+    -- use("folke/tokyonight.nvim") 
+    -- use("rebelot/kanagawa.nvim")
     -- use {'nyoom-engineering/oxocarbon.nvim'}
-    use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
-    })
+
+    --[[ use({ ]]
+    --[[     'rose-pine/neovim', ]]
+    --[[     as = 'rose-pine', ]]
+    --[[     config = function() ]]
+    --[[         vim.cmd('colorscheme rose-pine') ]]
+    --[[     end ]]
+    --[[ }) ]]
+    use 'AlexvZyl/nordic.nvim'
 
     use({
         "nvim-tree/nvim-tree.lua",
