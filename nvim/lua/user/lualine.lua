@@ -90,7 +90,7 @@ local layout = {
         return ""
       end,
       separator = { left = "", right = "" },
-      color = { bg = "#D08770" },
+      color = { bg = "#88C0D0" },
     },
     {
       "progress",
@@ -101,7 +101,7 @@ local layout = {
         return ""
       end,
       separator = { left = "", right = "" },
-      color = { bg = "#D08770" },
+      color = { bg = "#88C0D0" },
     },
     {
       "location",
@@ -112,7 +112,7 @@ local layout = {
         return ""
       end,
       separator = { left = "", right = "" },
-      color = { bg = "#D08770" },
+      color = { bg = "#88C0D0" },
     },
   },
 }

@@ -138,6 +138,10 @@ return packer.startup(function(use)
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
     use("akinsho/toggleterm.nvim") --toggleTerm
+    use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    })
 
     -- ChatGPT
     use({

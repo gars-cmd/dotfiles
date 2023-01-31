@@ -8,6 +8,7 @@ require "user.lsp-zero"
 require "user.colorscheme"
 require "user.telescope"
 require "user.treesitter"
+require "user.surround"
 require "user.autopairs"
 require "user.comment"
 require "user.gitsigns"
@@ -21,3 +22,5 @@ require "user.treesitter-context"
 require "user.symbols_outline"
 require "user.toggleterm"
 require "user.wilder"
+
+
