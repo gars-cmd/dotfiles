@@ -84,6 +84,7 @@ return packer.startup(function(use)
         requires = {
             "nvim-tree/nvim-web-devicons",
         },
+        tag = 'nightly'
     })
 
     use ('gelguy/wilder.nvim')-- fancy command-menu

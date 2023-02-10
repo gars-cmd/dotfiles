@@ -68,5 +68,9 @@ autocmd ColorScheme * highlight NonText guibg=#242933
 "override the bg of the cmp popup
 autocmd ColorScheme * highlight NormalFloat guibg=#242933
 " autocmd ColorScheme * highlight cursorline guibg=none
+autocmd ColorScheme * highlight PmenuSel guibg=#5E81AC
+" autocmd ColorScheme * highlight CursorLine guibg=#5E81AC
+
+
 augroup end
 ]])
