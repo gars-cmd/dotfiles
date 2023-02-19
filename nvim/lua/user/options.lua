@@ -2,7 +2,7 @@
 local options = {
     backup = false,				             --create backup of the file
     clipboard = "unnamedplus",      	     -- allows neovim to access the system clipboard
-    cmdheight = 2,                		     -- more space in the neovim command line for displaying messages
+    cmdheight = 0,                		     -- more space in the neovim command line for displaying messages
     conceallevel = 0,                        -- so that `` is visible in markdown files
     fileencoding = "utf-8",                  -- the encoding written to a file
     hlsearch = false,                         -- highlight all matches on previous search pattern
@@ -29,7 +29,7 @@ local options = {
     relativenumber = true,                   -- set relative numbered lines
     numberwidth = 2,                         -- set number column width to 2 {default 4}
     signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
-    colorcolumn = "",
+    --[[ colorcolumn = "80", ]]
     wrap = true,                            -- display lines as one long line
     scrolloff = 8,
     sidescrolloff = 8,
@@ -56,8 +56,8 @@ autocmd!
 "modify the color of the number line"
 autocmd ColorScheme * highlight LineNr guibg=#242933 guifg=#4C566A
 " tree-nvim background to none "
-autocmd ColorScheme * highlight NvimTreeNormal guibg=#191C24
-" color of the nvim-cmp 
+autocmd ColorScheme * highlight NvimTreeNormal guibg=none
+" color of the nvim-cmp
 autocmd ColorScheme * highlight Pmenu guibg=#242933  guifg=#D8DEE9
 "color of the border and the background of the border
 autocmd ColorScheme * highlight FloatBorder guibg=#242933 guifg=#D8DEE9 
@@ -69,7 +69,8 @@ autocmd ColorScheme * highlight NonText guibg=#242933
 autocmd ColorScheme * highlight NormalFloat guibg=#242933
 " autocmd ColorScheme * highlight cursorline guibg=none
 autocmd ColorScheme * highlight PmenuSel guibg=#5E81AC
-" autocmd ColorScheme * highlight CursorLine guibg=#5E81AC
+
+autocmd ColorScheme * highlight CursorLine guibg=#5E81AC
 
 
 augroup end

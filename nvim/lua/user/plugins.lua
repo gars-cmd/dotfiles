@@ -119,8 +119,13 @@ return packer.startup(function(use)
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
     }
+
     use 'folke/lsp-colors.nvim' -- display error with colors 
     use("nvim-telescope/telescope.nvim") --Telescope
+
+    -- hide the max length column when there is no need
+     use "m4xshen/smartcolumn.nvim"
+
 
     --TreeSitter
     use({

@@ -24,7 +24,6 @@ vim.opt.completeopt = "menu,menuone,noselect"
 
 
 -- Color Settingd 
-vim.api.nvim_set_hl(0, "CursorLine", { fg = "#88C0D0" , bg = "NONE" })
 vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#88C0D0" , bg = "NONE" })
 vim.api.nvim_set_hl(0, "CmpItemKindFunction" , { fg = "#B48EAD" , bg = "NONE" , bold = true })
 vim.api.nvim_set_hl(0, "CmpItemKindVariable" , { fg = "#8FBCBB" , bg = "NONE" , bold = true })

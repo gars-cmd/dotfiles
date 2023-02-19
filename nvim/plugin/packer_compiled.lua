@@ -262,6 +262,11 @@ _G.packer_plugins = {
     path = "/home/gars/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["smartcolumn.nvim"] = {
+    loaded = true,
+    path = "/home/gars/.local/share/nvim/site/pack/packer/start/smartcolumn.nvim",
+    url = "https://github.com/m4xshen/smartcolumn.nvim"
+  },
   ["symbols-outline.nvim"] = {
     loaded = true,
     path = "/home/gars/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
