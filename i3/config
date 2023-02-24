@@ -1,34 +1,26 @@
 # i3 config file (v4)
 
 exec_always --no-startup-id autotiling
-exec_always --no-startup-id picom --experimental-backends -b
+exec_always --no-startup-id  ~/.config/picom/build/src/picom
 exec_always $xborder -c ~/xborder/config.json
-exec_always ~/.config/i3/checkMonitors.sh
 exec_always setxkbmap -option grp:alt_space us,il
 exec_always greenclip daemon
 
 #display setup
-
-# if there main screen & vertical screen is connected 
-
-# if only main screen is connected 
-
-
-# else : there is no output screen screen connected 
-
-
+exec_always ~/.config/i3/checkMonitors.sh
 
 # exec_always xrandr --output DP-1 --primary  --3440x1440 ; xrandr --output HDMI-1 --mode 1920x1080 --rotate right --right-of DP-1 --rate 60 ; xrandr --output eDP-1 --off
 
 
 workspace "1: GIGABYTE" output DP-1
-workspace "2: SAMSUNG" output HDMI-1
+workspace "2: SAMSUNG"  output HDMI-1
+workspace "0: BUILTIN"  output eDP-1
 
 ## Basics
 smart_gaps on 
 smart_borders on
 set $inner_gaps 15
-set $outer_gaps 12
+set $outer_gaps 4
 set $term --no-startup-id kitty
 set $mod Mod4
 set $alt Mod1
@@ -47,7 +39,24 @@ for_window [class="Qalculate-gtk" instance="qalculate-gtk"] floating enable
 for_window [class="^.*"] border pixel 0
 gaps inner $inner_gaps
 gaps outer $outer_gaps
-for_window [class="Ulauncher"] border none
+# for_window [class="Ulauncher"] border none
+
+
+
+# Workspaces 
+
+# set $ws1 "1"
+# set $ws2 "2"
+# set $ws3 "3"
+# set $ws4 "4"
+
+
+# Binding workspace
+
+# bindsym $mod+1 workspace $ws1
+# bindsym $mod+2 workspace $ws2
+# bindsym $mod+3 workspace $ws3
+# bindsym $mod+4 workspace $ws4
 
 
 ##Bindings
@@ -120,6 +129,7 @@ bindsym $alt+space                exec --no-startup-id ~/.config/dunst/switch_la
 ## Print Battery level
 bindsym $mod+b                    exec --no-startup-id ~/.config/dunst/battery.sh 
 
+## clipboard inside rofi
 bindsym $mod+c                    exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 
