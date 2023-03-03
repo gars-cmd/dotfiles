@@ -1,5 +1,16 @@
 # Use custom format:
 # format="$directory$git_branch$character"
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
+$python\
+$character"""
 
 add_newline = true
 
@@ -10,9 +21,24 @@ format = "[]($style)[(bg:#EBCB8B fg:#001220)$path](bg:#EBCB8B fg:#001220)[
 style = "bg:none fg:#EBCB8B"
 
 [git_branch]
-format = "[]($style)[[ ](bg:#EBCB8B fg:#001220 bold)$branch](bg:#EBCB8B fg:#001220)[ ]($style)"
+format = "[]($style)[[](bg:#EBCB8B fg:#001220 bold)$branch](bg:#EBCB8B fg:#001220)[]($style)"
 style = "bg:none fg:#EBCB8B"
 
 [character]
 success_symbol = "[](#A3BE8C bold)"
 error_symbol = "[](#BF616A)"
+
+[git_status]
+format = " "
+style = "cyan"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+
+[cmd_duration]
+format = "[]($style)[[󰔟 ](bg:#EBCB8B fg:#001220 bold)$duration](bg:#EBCB8B fg:#001220)[]($style)"
+style = "bg:none fg:#EBCB8B"
