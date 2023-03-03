@@ -1,4 +1,5 @@
 require "user.autorun"
+require "user.align"
 require "user.options"
 require "user.keymaps"
 require "user.plugins"

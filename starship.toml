@@ -1,16 +1,18 @@
 # Use custom format:
-format="$directory$git_branch$character"
+# format="$directory$git_branch$character"
+
+add_newline = true
 
 # Prompt symbols 
-[character]
-success_symbol = "[❯](#a6e3a1 bold)"
-error_symbol = "[❯](#f38ba8)"
-vicmd_symbol = "[❯](#FBAE3C)"
 
 [directory]
-format = "[]($style)[(bg:#FBAE3C fg:#001220)$path](bg:#FBAE3C fg:#001220)[ ]($style)"
-style = "bg:none fg:#FBAE3C"
+format = "[]($style)[(bg:#EBCB8B fg:#001220)$path](bg:#EBCB8B fg:#001220)[ ]($style)"
+style = "bg:none fg:#EBCB8B"
 
 [git_branch]
-format = "[]($style)[[ ](bg:#FBAE3C fg:#001220 bold)$branch](bg:#FBAE3C fg:#001220)[ ]($style)"
-style = "bg:none fg:#FBAE3C"
+format = "[]($style)[[ ](bg:#EBCB8B fg:#001220 bold)$branch](bg:#EBCB8B fg:#001220)[ ]($style)"
+style = "bg:none fg:#EBCB8B"
+
+[character]
+success_symbol = "[](#A3BE8C bold)"
+error_symbol = "[](#BF616A)"

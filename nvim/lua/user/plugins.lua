@@ -137,6 +137,7 @@ return packer.startup(function(use)
     use("nvim-treesitter/nvim-treesitter-context") -- always show context of class/functions and more
 
     use("lewis6991/gitsigns.nvim") --GIT
+    use("Vonr/align.nvim") -- align block of text
 
     -- StatusBar
     use({

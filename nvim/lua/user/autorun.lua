@@ -1,35 +1,35 @@
 
 local attach_to_buffer = function(pattern, command)
     vim.api.nvim_create_autocmd("BufWritePost", {
-        group = vim.api.nvim_create_augroup("AutoRunFile", { clear = true }),
-        pattern = pattern,
-        callback = function()
+        group                 = vim.api.nvim_create_augroup("AutoRunFile", { clear = true }),
+        pattern               = pattern,
+        callback              = function()
             -- get dimensions
-            local width = vim.api.nvim_get_option("columns")
-            local height = vim.api.nvim_get_option("lines")
+            local width       = vim.api.nvim_get_option("columns")
+            local height      = vim.api.nvim_get_option("lines")
 
              -- calculate our floating window size
              local win_height = math.ceil(height * 0.8 - 4)
-             local win_width = math.ceil(width * 0.8)
+             local win_width  = math.ceil(width * 0.8)
 
             -- and its starting position
-            local row = math.ceil((height - win_height) / 2 - 1)
-            local col = math.ceil((width - win_width) / 2)
+            local row         = math.ceil((height - win_height) / 2 - 1)
+            local col         = math.ceil((width - win_width) / 2)
 
             -- create a buffer to write into 
-            local buff = vim.api.nvim_create_buf(false, true)
+            local buff        = vim.api.nvim_create_buf(false, true)
 
             -- to be deleted when hidden
             vim.api.nvim_buf_set_option(buff, 'bufhidden', 'wipe')
 
             local win_id = vim.api.nvim_open_win(buff, true, {
             relative = "editor",
-            border = "rounded",
-            style = "minimal",
-            width = win_width ,
-            height = win_height ,
-            row = row ,
-            col = col ,
+            border   = "rounded",
+            style    = "minimal",
+            width    = win_width ,
+            height   = win_height ,
+            row      = row ,
+            col      = col ,
             })
             vim.api.nvim_set_current_win(win_id)
             local function append_data(_, data)
@@ -39,8 +39,8 @@ local attach_to_buffer = function(pattern, command)
             end
             vim.fn.jobstart(command, {
                 stdout_buffered = true,
-                on_stdout = append_data,
-                on_stderr = append_data,
+                on_stdout       = append_data,
+                on_stderr       = append_data,
             })
         end,
     })
@@ -49,21 +49,21 @@ end
 --[[ attach_to_buffer("*.py", { "python3", "main.py" }) ]]
 vim.api.nvim_create_user_command("AutoRun", function()
     print "AutoRun start now... "
-    local filename = vim.api.nvim_call_function("bufname", {})
+    local filename  = vim.api.nvim_call_function("bufname", {})
     local extension = string.match(filename, "%.([^%.]*)$")
-    local pattern = "*." .. extension
+    local pattern   = "*." .. extension
     local command
-    if pattern == "*.py" then
-        command = { "python3", filename }
+    if pattern     == "*.py" then
+        command    = { "python3", filename }
     elseif pattern == "*.java" then
-        command = { "java", filename }
+        command    = { "java", filename }
     elseif pattern == "*.sh" then
-        command = { "bash", filename }
+        command    = { "bash", filename }
     elseif pattern == "*.js" or pattern == "*.ts" then
-        command = { "node", filename }
+        command    = { "node", filename }
     else
-        pattern = vim.fn.input "pattern: "
-        command = vim.fn.input "command: "
+        pattern    = vim.fn.input "pattern: "
+        command    = vim.fn.input "command: "
     end
     attach_to_buffer(pattern, command)
 end, {})
