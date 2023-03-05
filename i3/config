@@ -7,7 +7,7 @@ exec_always setxkbmap -option grp:alt_space us,il
 exec_always greenclip daemon
 
 #display setup
-exec_always ~/.config/i3/checkMonitors.sh
+exec_always ~/.config/scripts/checkMonitors.sh
 
 # exec_always xrandr --output DP-1 --primary  --3440x1440 ; xrandr --output HDMI-1 --mode 1920x1080 --rotate right --right-of DP-1 --rate 60 ; xrandr --output eDP-1 --off
 
@@ -99,9 +99,9 @@ bindsym Escape               mode "default"
 #Media Control Binding 
 
 ## Pulse Audio controls
-bindsym XF86AudioRaiseVolume      exec --no-startup-id ~/.config/dunst/volume.sh up 
-bindsym XF86AudioLowerVolume      exec --no-startup-id ~/.config/dunst/volume.sh down
-bindsym XF86AudioMute             exec --no-startup-id ~/.config/dunst/volume.sh mute 
+bindsym XF86AudioRaiseVolume      exec --no-startup-id ~/.config/scripts/volume.sh up 
+bindsym XF86AudioLowerVolume      exec --no-startup-id ~/.config/scripts/volume.sh down
+bindsym XF86AudioMute             exec --no-startup-id ~/.config/scripts/volume.sh mute 
 
 
 ## Sreen brightness controls
@@ -113,10 +113,10 @@ bindsym XF86MonBrightnessDown     exec light -U 5
 # bindsym XF86AudioNext notification from dunst for switch layout          exec playerctl next
 # bindsym XF86AudioPrev           exec playerctl previous
 
-bindsym XF86AudioPlay             exec --no-startup-id ~/.config/dunst/media.sh pplay
-bindsym XF86AudioPause            exec --no-startup-id ~/.config/dunst/media.sh pplay
-bindsym XF86AudioNext             exec --no-startup-id ~/.config/dunst/media.sh forw
-bindsym XF86AudioPrev             exec --no-startup-id ~/.config/dunst/media.sh back
+bindsym XF86AudioPlay             exec --no-startup-id ~/.config/scripts/media.sh pplay
+bindsym XF86AudioPause            exec --no-startup-id ~/.config/scripts/media.sh pplay
+bindsym XF86AudioNext             exec --no-startup-id ~/.config/scripts/media.sh forw
+bindsym XF86AudioPrev             exec --no-startup-id ~/.config/scripts/media.sh back
 
 ## system command 
 bindsym $mod+q                    exec --no-startup-id ~/.config/rofi/powermenu.sh 
@@ -124,10 +124,10 @@ bindsym $mod+q                    exec --no-startup-id ~/.config/rofi/powermenu.
 
 
 ##Keyboard Layout
-bindsym $alt+space                exec --no-startup-id ~/.config/dunst/switch_layout.sh
+bindsym $alt+space                exec --no-startup-id ~/.config/scripts/switch_layout.sh
 
 ## Print Battery level
-bindsym $mod+b                    exec --no-startup-id ~/.config/dunst/battery.sh 
+bindsym $mod+b                    exec --no-startup-id ~/.config/scripts/battery.sh 
 
 ## clipboard inside rofi
 bindsym $mod+c                    exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
