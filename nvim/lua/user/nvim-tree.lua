@@ -18,13 +18,13 @@ nvim_tree.setup {
     renderer = {
         --   root_folder_modifier = ":t",
         indent_markers = {
-            enable = true,
+            enable        = true,
             inline_arrows = true,
-            icons = {
-                corner = "└",
-                edge = "│",
-                item = "│",
-                none = " ",
+            icons         = {
+                corner    = "└",
+                edge      = "│",
+                item      = "│",
+                none      = " ",
             },
         },
         icons = {

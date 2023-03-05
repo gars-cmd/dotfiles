@@ -5,9 +5,9 @@ local function diff_source()
     local gitsigns = vim.b.gitsigns_status_dict
     if gitsigns then
         return {
-          added = gitsigns.added,
+          added    = gitsigns.added,
           modified = gitsigns.changed,
-          removed = gitsigns.removed
+          removed  = gitsigns.removed
         }
     end
 end
@@ -77,13 +77,13 @@ function M:get_current_filename_with_icon()
     local suffix = ' '
 
     -- Get icon and filename.
-    local icon = M.get_current_filetype_icon(self)
+    local icon   = M.get_current_filetype_icon(self)
     local f_name = get_current_filename()
 
     -- Add readonly icon.
-    local readonly = vim.api.nvim_buf_get_option(0, 'readonly')
+    local readonly   = vim.api.nvim_buf_get_option(0, 'readonly')
     local modifiable = vim.api.nvim_buf_get_option(0, 'modifiable')
-    local nofile = get_current_buftype() == 'nofile'
+    local nofile     = get_current_buftype() == 'nofile'
     if readonly or nofile or not modifiable then
         suffix = ' '
     end

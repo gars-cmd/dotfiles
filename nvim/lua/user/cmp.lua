@@ -34,7 +34,7 @@ vim.api.nvim_set_hl(0, "CmpItemKindKeyword" , { fg = "#D8DEE9" , bg = "NONE" , b
 cmp.setup({
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
-		select = true,
+		select   = true,
 	},
 
 	duplicates_default = 0,
@@ -44,7 +44,7 @@ cmp.setup({
 		end,
 	},
 	window = {
-		completion = cmp.config.window.bordered(),
+		completion    = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 	},
 
