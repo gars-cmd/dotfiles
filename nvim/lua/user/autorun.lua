@@ -1,4 +1,3 @@
-
 local attach_to_buffer = function(pattern, command)
     vim.api.nvim_create_autocmd("BufWritePost", {
         group                 = vim.api.nvim_create_augroup("AutoRunFile", { clear = true }),
@@ -23,15 +22,16 @@ local attach_to_buffer = function(pattern, command)
             vim.api.nvim_buf_set_option(buff, 'bufhidden', 'wipe')
 
             local win_id = vim.api.nvim_open_win(buff, true, {
-            relative = "editor",
-            border   = "rounded",
-            style    = "minimal",
-            width    = win_width ,
-            height   = win_height ,
-            row      = row ,
-            col      = col ,
+                relative  = "editor",
+                border    = "rounded",
+                style     = "minimal",
+                width     = win_width ,
+                height    = win_height ,
+                row       = row ,
+                col       = col ,
             })
             vim.api.nvim_set_current_win(win_id)
+            print("win id is :",win_id)
             local function append_data(_, data)
                 if data then
                     vim.api.nvim_buf_set_lines(buff, -1, -1, false, data)
@@ -46,7 +46,6 @@ local attach_to_buffer = function(pattern, command)
     })
 end
 
---[[ attach_to_buffer("*.py", { "python3", "main.py" }) ]]
 vim.api.nvim_create_user_command("AutoRun", function()
     print "AutoRun start now... "
     local filename  = vim.api.nvim_call_function("bufname", {})
@@ -61,6 +60,8 @@ vim.api.nvim_create_user_command("AutoRun", function()
         command    = { "bash", filename }
     elseif pattern == "*.js" or pattern == "*.ts" then
         command    = { "node", filename }
+    elseif pattern == "*.c" or pattern == "*.h" or pattern == "*.cpp" then
+        command = {"make", "run"}
     else
         pattern    = vim.fn.input "pattern: "
         command    = vim.fn.input "command: "

@@ -57,7 +57,7 @@ autocmd!
 "modify the color of the number line"
 autocmd ColorScheme * highlight LineNr         guibg=#242933 guifg=#4C566A
 " tree-nvim background to none "
-autocmd ColorScheme * highlight NvimTreeNormal guibg=none
+autocmd ColorScheme * highlight NvimTreeNormal guibg=#212529 
 " color of the nvim-cmp
 autocmd ColorScheme * highlight Pmenu          guibg=#242933 guifg=#D8DEE9
 "color of the border and the background of the border

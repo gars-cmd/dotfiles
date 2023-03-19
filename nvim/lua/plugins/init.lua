@@ -35,7 +35,11 @@ return {
     --[[         vim.cmd('colorscheme rose-pine') ]]
     --[[     end ]]
     --[[ }) ]]
-     'AlexvZyl/nordic.nvim'                      ,
+    {
+        'AlexvZyl/nordic.nvim',
+        lazy = false,
+        priority = 1000,
+    },
 
     {
         "nvim-tree/nvim-tree.lua"                ,
