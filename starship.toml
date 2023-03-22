@@ -17,16 +17,16 @@ add_newline = true
 # Prompt symbols 
 
 [directory]
-format = "[]($style)[(bg:#EBCB8B fg:#001220)$path](bg:#EBCB8B fg:#001220)[ ]($style)"
-style = "bg:none fg:#EBCB8B"
+format = "[]($style)[(bg:#ebdbb2 fg:#001220)$path](bg:#ebdbb2 fg:#001220)[ ]($style)"
+style = "bg:none fg:#ebdbb2"
 
 [git_branch]
-format = "[]($style)[[](bg:#EBCB8B fg:#001220 bold)$branch](bg:#EBCB8B fg:#001220)[]($style)"
-style = "bg:none fg:#EBCB8B"
+format = "[]($style)[[](bg:#ebdbb2 fg:#001220 bold)$branch](bg:#ebdbb2 fg:#001220)[]($style)"
+style = "bg:none fg:#ebdbb2"
 
 [character]
-success_symbol = "[](#A3BE8C bold)"
-error_symbol = "[](#BF616A)"
+success_symbol = "[󰜴](#689d6a bold)"
+error_symbol = "[󰜴](#cc241d bold)"
 
 [git_status]
 format = " "
@@ -40,5 +40,5 @@ deleted = "​"
 stashed = "≡"
 
 [cmd_duration]
-format = "[]($style)[[󰔟 ](bg:#EBCB8B fg:#001220 bold)$duration](bg:#EBCB8B fg:#001220)[]($style)"
-style = "bg:none fg:#EBCB8B"
+format = "[]($style)[[󰔟 ](bg:#ebdbb2 fg:#001220 bold)$duration](bg:#ebdbb2 fg:#001220)[]($style)"
+style = "bg:none fg:#ebdbb2"

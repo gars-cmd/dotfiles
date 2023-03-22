@@ -30,7 +30,7 @@ local attach_to_buffer = function(pattern, command)
                 row       = row ,
                 col       = col ,
             })
-            vim.api.nvim_set_current_win(win_id)
+            --[[ vim.api.nvim_set_current_win(win_id) ]]
             print("win id is :",win_id)
             local function append_data(_, data)
                 if data then

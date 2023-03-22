@@ -26,7 +26,8 @@ return {
 
     -- ("folke/tokyonight.nvim") 
     -- ("rebelot/kanagawa.nvim")
-    --  {'nyoom-engineering/oxocarbon.nvim'}
+    --  {'nyoom-engineering/oxocrbon.nvim'}
+    'sainnhe/gruvbox-material',
 
     --[[ ({ ]]
     --[[     'rose-pine/neovim'                  , ]]
@@ -35,11 +36,11 @@ return {
     --[[         vim.cmd('colorscheme rose-pine') ]]
     --[[     end ]]
     --[[ }) ]]
-    {
-        'AlexvZyl/nordic.nvim',
-        lazy = false,
-        priority = 1000,
-    },
+    --[[ { ]]
+    --[[     'AlexvZyl/nordic.nvim', ]]
+    --[[     lazy = false, ]]
+    --[[     priority = 1000, ]]
+    --[[ }, ]]
 
     {
         "nvim-tree/nvim-tree.lua"                ,
