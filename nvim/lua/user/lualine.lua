@@ -1,24 +1,25 @@
 local colors = {
-	red = '#cc241d',
-	grey = '#282828',
-	black = '#0b0e18',
-	white = '#fbf1c7',
+	red         = '#cc241d',
+	grey        = '#32302f',
+	black       = '#0b0e18',
+	white       = '#f9f5d7',
+	green       = '#98971a',
+	orange      = '#d65d0e',
 	light_green = '#b8bb26',
-	orange = '#af3a03',
-	green = '#79740e',
-	blue = '#076678',
-    purple = '#8f3f71',
+	blue        = '#458588',
+    purple      = '#b16286',
 }
 
 local theme = {
 	normal = {
-		a = { fg = colors.black, bg = colors.blue },
-		b = { fg = colors.blue, bg = colors.white },
-		c = { fg = colors.white, bg = colors.black },
-		z = { fg = colors.white, bg = colors.black },
+		a  = { fg = colors.black, bg = colors.blue },
+		b  = { fg = colors.blue, bg  = colors.white },
+		c  = { fg = colors.white, bg = colors.black },
+		z  = { fg = colors.white, bg = colors.black },
 	},
-	insert = { a = { fg = colors.black, bg = colors.orange } },
-	visual = { a = { fg = colors.black, bg = colors.green } },
+
+	insert  = { a = { fg = colors.black, bg = colors.orange } },
+	visual  = { a = { fg = colors.black, bg = colors.green } },
 	replace = { a = { fg = colors.black, bg = colors.green } },
 }
 
@@ -46,16 +47,16 @@ local filename = {
 local filetype = {
 	"filetype",
 	icon_only = true,
-	colored = true,
-	color = { bg = colors.grey },
+	colored   = true,
+	color     = { bg   = colors.grey },
 	separator = { left = "", right = "" },
 }
 
 local filetype_tab = {
 	"filetype",
 	icon_only = true,
-	colored = true,
-	color = { bg = colors.grey },
+	colored   = true,
+	color     = { bg = colors.grey },
 }
 
 
@@ -64,43 +65,43 @@ local position = {
     symbols = {
         unix = '',
     },
-	color = { bg = colors.purple, fg = colors.grey },
-	separator = { left = "", right = "" },
+	color     = { bg   = colors.purple, fg = colors.grey },
+	separator = { left = "", right        = "" },
 }
 
 local location = {
     'location',
-    color = { bg = colors.grey, fg = colors.white },
-	separator = { left = "", right = "" },
+    color     = { bg   = colors.grey, fg = colors.white },
+	separator = { left = "", right      = "" },
 }
 
 local encoding = {
 	'encoding',
-	color = { bg = colors.grey, fg = colors.blue },
-	separator = { left = "", right = "" },
+	color     = { bg   = colors.grey, fg = colors.blue },
+	separator = { left = "", right      = "" },
 }
 
 local branch = {
 	'branch',
-	color = { bg = colors.light_green, fg = colors.grey },
-	separator = { left = "", right = "" },
+	color     = { bg   = colors.light_green, fg = colors.grey },
+	separator = { left = "", right             = "" },
 }
 
 local diff = {
 	"diff",
-	color = { bg = colors.grey, fg = colors.purple },
-	separator = { left = "", right = "" },
+	color     = { bg   = colors.grey, fg = colors.purple },
+	separator = { left = "", right      = "" },
 }
 
 local modes = {
 	'mode', fmt = function(str) return str:sub(1, 1) end,
-	color = { bg = colors.orange, fg = colors.black },
-	separator = { left = "", right = "" },
+	color     = { bg     = colors.orange, fg = colors.black },
+	separator = {  right = "" },
 }
 
 local function getLspName()
-	local msg = 'No Active Lsp'
-	local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+	local msg     = 'No Active Lsp'
+	local buf_ft  = vim.api.nvim_buf_get_option(0, 'filetype')
 	local clients = vim.lsp.get_active_clients()
 	if next(clients) == nil then
 		return msg
@@ -116,36 +117,36 @@ end
 
 local dia = {
 	'diagnostics',
-	color = { bg = colors.grey, fg = colors.blue },
-	separator = { left = "", right = "" },
+	color     = { bg   = colors.grey, fg = colors.blue },
+	separator = { left = "", right      = "" },
 }
 
 local lsp = {
 	function()
 		return getLspName()
 	end,
-	separator = { left = "", right = "" },
-	color = { bg = colors.red, fg = colors.black },
+	separator = { left = ""  },
+	color     = { bg   = colors.red, fg = colors.black },
 }
 
 require('lualine').setup {
 
 	options = {
-		icons_enabled = true,
-		theme = theme,
+		icons_enabled        = true,
+		theme                = theme,
 		component_separators = { left = '', right = '' },
-		section_separators = { left = '', right = '' },
-		disabled_filetypes = {
-			statusline = {},
-			winbar = {},
+		section_separators   = { left = '', right = '' },
+		disabled_filetypes   = {
+            statusline = {},
+            winbar     = {},
 		},
-		ignore_focus = {},
-		always_divide_middle = true,
-		globalstatus = true,
-		refresh = {
+        ignore_focus         = {},
+        always_divide_middle = true,
+        globalstatus         = true,
+		refresh              = {
 			statusline = 1000,
-			tabline = 1000,
-			winbar = 1000,
+			tabline    = 1000,
+			winbar     = 1000,
 		}
 	},
 
@@ -199,7 +200,7 @@ require('lualine').setup {
 		lualine_z = {
 		},
 	},
-	winbar = {},
+	winbar          = {},
 	inactive_winbar = {},
 
 }

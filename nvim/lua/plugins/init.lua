@@ -27,7 +27,9 @@ return {
     -- ("folke/tokyonight.nvim") 
     -- ("rebelot/kanagawa.nvim")
     --  {'nyoom-engineering/oxocrbon.nvim'}
-    'sainnhe/gruvbox-material',
+    --[[ 'sainnhe/gruvbox-material', ]]
+    { "arturgoms/moonbow.nvim" }                ,
+
 
     --[[ ({ ]]
     --[[     'rose-pine/neovim'                  , ]]
