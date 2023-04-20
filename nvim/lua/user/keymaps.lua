@@ -1,4 +1,9 @@
-local opts = { noremap = true, silent = true }
+local opts = {
+    noremap = true,
+    silent = true,
+    nowait = false,
+    buffer = nil,
+}
 --[[ local term_opts = { silent = true } ]]
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -23,8 +28,8 @@ vim.g.mapleader = " "
 -- keymap("n", "<C-k>", "<C-w>k", opts)
 -- keymap("n", "<C-l>", "<C-w>l", opts)
 
--- it's like to do [ <- ] at every start line bellow  
-keymap("n" , "J" , "mzJ`z", opts)
+-- it's like to do [ <- ] at every start line bellow
+keymap("n", "J", "mzJ`z", opts)
 
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -55,51 +60,69 @@ keymap("v", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("v", "K", ":move '<-2<CR>gv-gv", opts)
 
 
- -- ThePrimeagen tip to center CTRL u (go half up) and CTRL d (go half down)
-keymap("n" , "<C-u>" , "<C-u>zz",opts)
-keymap("n" , "<C-d>" , "<C-d>zz",opts)
+-- ThePrimeagen tip to center CTRL u (go half up) and CTRL d (go half down)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+keymap("n", "<C-d>", "<C-d>zz", opts)
 
 -- ThePrimeagen tip to center the view of search results
-keymap("n" , "n" , "nzzzv",opts)
-keymap("n" , "N" , "Nzzzv",opts)
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
 
 -- ThePrimeagen tip to keep what is in the yank register after deleting
-keymap("x" , "<leader>p" , "\"_dP", opts)
+keymap("x", "<leader>p", "\"_dP", opts)
 
 
--- yank into the system register 
-keymap("n" , "<leader>y", "\"+y",opts)
-keymap("v" , "<leader>y", "\"+y",opts)
-keymap("n" , "<leader>Y", "\"+y",opts)
+-- yank into the system register
+keymap("n", "<leader>y", "\"+y", opts)
+keymap("v", "<leader>y", "\"+y", opts)
+keymap("n", "<leader>Y", "\"+y", opts)
 
 -- Telescope
 keymap(
-	"n",
-	"<A-f>",
-	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({}))<cr>",
-	opts
+    "n",
+    "<A-f>",
+    "<cmd>lua require'telescope.builtin'.find_files()<cr>",
+    opts
 )
 keymap(
-	"n",
-	"<A-g>",
-	"<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes').get_dropdown({}))<cr>",
-	opts
+    "n",
+    "<A-g>",
+    "<cmd>lua require'telescope.builtin'.live_grep()<cr>",
+    opts
 )
+keymap(
+    "n",
+    "<A-k>",
+    "<cmd>lua require'telescope.builtin'.keymaps()<cr>",
+    opts
+)
+keymap(
+    "n",
+    "<A-s>",
+    "<cmd>lua require'telescope.builtin'.treesitter()<cr>",
+    opts
+)
+
+--local builtin = require('telescope.builtin')
+-- vim.keymap.set('n', '<A-k>', builtin.keymaps, {})
+-- vim.keymap.set('n', '<A-f>', builtin.find_files, {})
+-- vim.keymap.set('n', '<A-g>', builtin.live_grep, {})
 
 --nvim-tree
 keymap("n", "<C-n>", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<C-h>", ":NvimTreeFocus<cr>", opts)
 
 -- hop
-keymap("n", "<A-w>", "<cmd>lua require'hop'.hint_words()<cr>", opts) --move the cursor to a specific word
+keymap("n", "<A-w>", "<cmd>lua require'hop'.hint_words()<cr>", opts)    --move the cursor to a specific word
 keymap("n", "<A-l>", "<cmd>lua require'hop'.hint_vertical()<cr>", opts) --move the cursor in a vertical line
-keymap("n", "gf", "<cmd>lua vim.lsp.buf.format()<cr>", opts) -- key binding to activate formatting of the code
+keymap("n", "gf", "<cmd>lua vim.lsp.buf.format()<cr>", opts)            -- key binding to activate formatting of the code
 
-keymap("n", "gt" , ":TroubleToggle<cr>" , opts)
+-- Trouble 
+keymap("n", "gt", ":TroubleToggle<cr>", opts)
 
--- keymap for symbols-outlines plugin 
-keymap("n" , "<A-t>" ,":SymbolsOutline<cr>",opts)
+-- keymap for symbols-outlines plugin
+keymap("n", "<A-t>", ":SymbolsOutline<cr>", opts)
 
---keymaps for toggleterm 
-keymap("n" , "<C-t>" , ":ToggleTerm<cr>" , opts)
+--keymaps for toggleterm
+keymap("n", "<C-t>", ":ToggleTerm<cr>", opts)
 

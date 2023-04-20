@@ -35,7 +35,7 @@ local space = {
 	function()
 		return " "
 	end,
-	color = { bg = colors.black, fg = colors.green },
+	color = { bg = 'NONE', fg = colors.green },
 }
 
 local filename = {
@@ -83,7 +83,7 @@ local encoding = {
 
 local branch = {
 	'branch',
-	color     = { bg   = colors.light_green, fg = colors.grey },
+	color     = { bg   = colors.light_green, fg = colors.black },
 	separator = { left = "", right             = "" },
 }
 
@@ -162,7 +162,6 @@ require('lualine').setup {
 
 		},
 		lualine_c = {
-
 			filename,
 			filetype,
 			space,
@@ -171,6 +170,7 @@ require('lualine').setup {
 		},
 		lualine_x = {
 			space,
+
 		},
 		lualine_y = {
 			location,

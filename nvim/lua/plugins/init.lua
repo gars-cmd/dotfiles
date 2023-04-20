@@ -104,6 +104,14 @@ return {
     }                                            ,
     "akinsho/toggleterm.nvim"                    ,
 
+    -- DEBUGGING WITH DAP
+    {"mfussenegger/nvim-dap"},
+    {"jay-babu/mason-nvim-dap.nvim"},
+    {"nvim-telescope/telescope-dap.nvim"},
+    {"theHamsta/nvim-dap-virtual-text"},
+    {"rcarriga/nvim-dap-ui"},
+
+
     --MINI-PLUGINS
     { 'echasnovski/mini.align', version = false, config = function () require('mini.align').setup() end},
     { 'echasnovski/mini.surround', version = false, config = function () require('mini.surround').setup() end},
