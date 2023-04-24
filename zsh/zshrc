@@ -1,0 +1,112 @@
+
+# My Path
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/var/lib/snapd/snap/bin:/home/gars/.composer/vendor/bin:/home/gars/.cargo/bin:/home/gars/node_modules:/home/gars/.local/bin:/var/lib/snapd/snap"
+
+### ZSH HOME
+export ZSHOME=$HOME/.config/zsh
+export ZSH=$HOME/.config/.zshrc
+export OPENAI_API_KEY=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
+
+#script to get nice pokemon ASCII
+bash $HOME/Downloads/soft/pokescript/pokemon-colorscripts.sh -r
+
+### ---- history config -------------------------------------
+export HISTFILE=$ZSHOME/.zsh_history
+
+# How many commands zsh will load to memory.
+export HISTSIZE=10000
+
+# How many commands history will save on file.
+export SAVEHIST=5000
+
+# replace the default editor by nvim
+export EDITOR=/usr/bin/nvim
+
+# History won't save duplicates.
+setopt HIST_IGNORE_ALL_DUPS
+
+# some useful options (man zshoptions from https://github.com/ChristianChiarulli/Machfiles/blob/master/zsh/.zshrc)
+setopt autocd extendedglob nomatch menucomplete
+setopt interactive_comments
+stty stop undef		# Disable ctrl-s to freeze terminal.
+zle_highlight=('paste:none')
+
+# completions
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+# zstyle ':completion::complete:lsof:*' menu yes select
+zmodload zsh/complist
+# compinit
+_comp_options+=(globdots)		# Include hidden files.
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+# History won't show duplicates on search.
+setopt HIST_FIND_NO_DUPS
+
+
+# K8s auto-complete
+autoload -Uz compinit 
+# source <(kubectl completion zsh)
+
+# Colors
+autoload -Uz colors && colors
+
+# Themes 
+ eval "$(starship init zsh)"
+
+
+ # Zoxide (better cd command)
+ eval "$(zoxide init zsh)"
+
+# PLUGINS
+# source $ZSHOME/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source $ZSHOME/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZSHOME/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source $ZSHOME/plugins/sudo/sudo.plugin.zsh
+fpath=($ZSHOME/plugins/zsh-completions/zsh-completions.plugin.zsh $fpath)
+# source $ZSHOME/plugins/fzf-tab/fzf-tab.plugin.zsh
+
+
+# FZF 
+[ -f $ZSHOME/plugins/fzf/shell/completion.zsh ]     && source $ZSHOME/plugins/fzf/shell/completion.zsh 
+[ -f $ZSHOME/plugins/fzf/shell/key-bindings.zsh ]   && source $ZSHOME/plugins/fzf/shell/key-bindings.zsh
+[ -f /usr/share/doc/fzf/examples/completion.zsh ]   && source /usr/share/doc/fzf/examples/completion.zsh
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+[ -f ~/.fzf.zsh ]                                   && source ~/.fzf.zsh
+[ -f $ZSHOME/completion/_fnm ]                      && fpath+="$ZSHOME/completion/"
+# export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
+compinit
+
+# NNN
+export NNN_PLUG='f:autojump;p:preview-tui'
+set --export NNN_FIFO="/tmp/nnn.fifo"
+export NNN_FCOLORS='0:#282828;1:#cc241d;2:#98971a;3:#d79921;4:#458588;5:#b16286;6:#689d6a;7:#a89984;8:#928374;9:#fb4934;10:#b8bb26;11:#fabd2f;12:#83a598;13:#d3869b;14:#8ec07c;15:#ebdbb2;BD_COLOR=#d5c4a1'
+
+
+
+
+
+# Alias 
+alias nv="nvim"
+alias zshconf="nv $HOME/.zshrc"
+alias i3conf="nv $HOME/.config/i3/config"
+alias picomconf="nv $HOME/.config/picom/picom.conf"
+alias dunstconf="nv $HOME/.config/dunst/dunstrc"
+alias kittyconf="nv $HOME/.config/kitty/kitty.conf"
+alias blogdir="nv $HOME/Documents/autre/web/blog/"
+alias nvimconf="nv $HOME/.config/nvim/init.lua"
+alias prettier="npx prettier --write"
+alias roficonf="nv $HOME/.config/rofi/"
+alias cpySync="sh $HOME/.config/scripts/cpySync.sh"
+alias termpdf="python $HOME/Downloads/soft/termpdf.py/termpdf.py"
+alias nnn="nnn -e -a"
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+# fzf init command
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

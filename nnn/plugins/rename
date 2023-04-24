@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# Description: rename  the file or directory currently selected
+#
+# Shell: POSIX compliant
+# Author: gars-cmd
+
+
+printf 'reaname %s to: ' "$1"
+read -r resp
+mv "$1" "$resp"
