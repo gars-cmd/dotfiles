@@ -16,7 +16,6 @@ return {
     }                                            ,
     "karb94/neoscroll.nvim"                      , -- smooth scroll 
     "JoosepAlviste/nvim-ts-context-commentstring", --support comments for many languages
-    "ryanoasis/vim-devicons"                     ,
     "lukas-reineke/indent-blankline.nvim"        , --add dot for space                                         , line for indent and match coloration for brackets
     "nacro90/numb.nvim"                          , --allow to moove to a line like : 60 without to press enter , work also number by number
     "NvChad/nvim-colorizer.lua"                  , -- display the color in many formats (hex                   ,rgb..)
@@ -74,11 +73,12 @@ return {
     }                                            ,
     "jose-elias-alvarez/null-ls.nvim"            ,
     "onsails/lspkind.nvim"                       ,
+    "nvim-tree/nvim-web-devicons",
 
     --another way to toggle errors
      {
         "folke/trouble.nvim"                     ,
-        dependencies = "ryanoasis/vim-devicons"  ,
+        dependencies = "nvim-tree/nvim-web-devicons"  ,
     }                                            ,
 
      'folke/lsp-colors.nvim'                     , -- display error with colors 
@@ -115,19 +115,4 @@ return {
     --MINI-PLUGINS
     { 'echasnovski/mini.align', version = false, config = function () require('mini.align').setup() end},
     { 'echasnovski/mini.surround', version = false, config = function () require('mini.surround').setup() end},
-
-    -- ChatGPT
-    {
-        "jackMort/ChatGPT.nvim"                  ,
-        config = function()
-            require("chatgpt").setup({
-                -- optional configuration
-            })
-        end                                      ,
-        dependencies = {
-            "MunifTanjim/nui.nvim"               ,
-            "nvim-lua/plenary.nvim"              ,
-            "nvim-telescope/telescope.nvim"
-        }
-    }                                            ,
 }
