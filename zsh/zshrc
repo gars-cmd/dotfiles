@@ -5,7 +5,6 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/var/lib/snapd/sn
 ### ZSH HOME
 export ZSHOME=$HOME/.config/zsh
 export ZSH=$HOME/.config/.zshrc
-export OPENAI_API_KEY=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
 
 #script to get nice pokemon ASCII
 bash $HOME/Downloads/soft/pokescript/pokemon-colorscripts.sh -r
