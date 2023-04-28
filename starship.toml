@@ -1,44 +1,46 @@
 # Use custom format:
+
+
 # format="$directory$git_branch$character"
 format = """
 $username\
-$hostname\
 $directory\
-$git_branch\
-$git_state\
-$git_status\
-$cmd_duration\
-$line_break\
-$python\
-$character"""
+$git_branch
+$character
+"""
+
+
+right_format = """$cmd_duration"""
 
 add_newline = true
 
-# Prompt symbols 
+    #separator :   ,   ,  , 
+
+[username]
+style_user = "bg:#F4F1DE fg:#001220"
+format = "[[](bg:none fg:#F4F1DE) [](bg:#E07A5F fg:#F4F1DE)]($style)"
+disabled = false
+show_always = true
 
 [directory]
-format = "[]($style)[(bg:#ebdbb2 fg:#001220)$path](bg:#ebdbb2 fg:#001220)[ ]($style)"
-style = "bg:none fg:#ebdbb2"
+style = "italic bg:#E07A5F fg:#001220"
+format = "[[](bg:#E07A5F fg:#E07A5F)$path[](bg:#none fg:#E07A5F)]($style)"
+truncation_length = 3
+truncate_to_repo = true
 
 [git_branch]
-format = "[]($style)[[](bg:#ebdbb2 fg:#001220 bold)$branch](bg:#ebdbb2 fg:#001220)[]($style)"
-style = "bg:none fg:#ebdbb2"
+# symbol = " "
+symbol = "  " # alternate
+style = "bg:#81B29A fg:#001220"
+format = "[[ ](bg:none fg:#81B29A)$symbol$branch[](bg:none fg:#81B29A )]($style)"
 
 [character]
 success_symbol = "[󰜴](#689d6a bold)"
 error_symbol = "[󰜴](#cc241d bold)"
 
-[git_status]
-format = " "
-style = "cyan"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
-stashed = "≡"
-
 [cmd_duration]
-format = "[]($style)[[󰔟 ](bg:#ebdbb2 fg:#001220 bold)$duration](bg:#ebdbb2 fg:#001220)[]($style)"
-style = "bg:none fg:#ebdbb2"
+min_time = 1
+style = "bg:#F2CC8F fg:#001220"
+format = "[[](bg:none fg:#F2CC8F)󰔟 $duration[](bg:#none fg:#F2CC8F )]($style)"
+disabled = false
+
