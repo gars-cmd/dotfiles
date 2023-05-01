@@ -27,7 +27,9 @@ return {
     -- ("rebelot/kanagawa.nvim")
     --  {'nyoom-engineering/oxocrbon.nvim'}
     --[[ 'sainnhe/gruvbox-material', ]]
-    { "arturgoms/moonbow.nvim" }                ,
+    --[[ { "arturgoms/moonbow.nvim" }                , ]]
+    { "ellisonleao/gruvbox.nvim", priority = 1000 },
+
 
 
     --[[ ({ ]]
@@ -102,7 +104,6 @@ return {
     -- StatusBar
     {"nvim-lualine/lualine.nvim",dependencies = { "ryanoasis/vim-devicons", opt = true },
     }                                            ,
-    "akinsho/toggleterm.nvim"                    ,
 
     -- DEBUGGING WITH DAP
     {"mfussenegger/nvim-dap"},

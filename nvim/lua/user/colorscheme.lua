@@ -1,3 +1,5 @@
 -- setup must be called before loading the colorscheme
 -- Default options:
-vim.cmd("colorscheme moonbow")
+vim.o.background = "dark" -- or "light" for light mode
+vim.cmd([[colorscheme gruvbox]])
+

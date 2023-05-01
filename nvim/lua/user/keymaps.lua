@@ -124,5 +124,5 @@ keymap("n", "gt", ":TroubleToggle<cr>", opts)
 keymap("n", "<A-t>", ":SymbolsOutline<cr>", opts)
 
 --keymaps for toggleterm
-keymap("n", "<C-t>", ":ToggleTerm<cr>", opts)
+--[[ keymap("n", "<C-t>", ":ToggleTerm<cr>", opts) ]]
 

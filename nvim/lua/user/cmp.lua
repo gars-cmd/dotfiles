@@ -24,10 +24,10 @@ vim.opt.completeopt = "menu,menuone,noselect"
 
 
 -- Color Settingd 
-vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#88C0D0" , bg = "NONE" })
-vim.api.nvim_set_hl(0, "CmpItemKindFunction" , { fg = "#B48EAD" , bg = "NONE" , bold = true })
-vim.api.nvim_set_hl(0, "CmpItemKindVariable" , { fg = "#8FBCBB" , bg = "NONE" , bold = true })
-vim.api.nvim_set_hl(0, "CmpItemKindKeyword" , { fg = "#D8DEE9" , bg = "NONE" , bold = true })
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#b16286" , bg = "NONE" })
+vim.api.nvim_set_hl(0, "CmpItemKindFunction" , { fg = "#458588" , bg = "NONE" , bold = true })
+vim.api.nvim_set_hl(0, "CmpItemKindVariable" , { fg = "#8ec07c" , bg = "NONE" , bold = true })
+vim.api.nvim_set_hl(0, "CmpItemKindKeyword" , { fg = "#fabd2f" , bg = "NONE" , bold = true })
 
 
 
@@ -70,6 +70,7 @@ cmp.setup({
 	}),
 	-- configure lspkind for vs-code like icons
 	formatting = {
+        fields = {"kind", "abbr", "menu"},
 		format = lspkind.cmp_format({
 			maxwidth = 50,
 			ellipsis_char = "...",
