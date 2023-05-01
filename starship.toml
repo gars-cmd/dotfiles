@@ -17,22 +17,22 @@ add_newline = true
     #separator :   ,   ,  , 
 
 [username]
-style_user = "bg:#F4F1DE fg:#001220"
-format = "[[](bg:none fg:#F4F1DE) [](bg:#E07A5F fg:#F4F1DE)]($style)"
+style_user = "bg:#458588 fg:#001220"
+format = "[[](bg:none fg:#458588) [](bg:#D65D0E fg:#458588)]($style)"
 disabled = false
 show_always = true
 
 [directory]
-style = "italic bg:#E07A5F fg:#001220"
-format = "[[](bg:#E07A5F fg:#E07A5F)$path[](bg:#none fg:#E07A5F)]($style)"
+style = "italic bg:#D65D0E fg:#001220"
+format = "[[](bg:#D65D0E fg:#D65D0E)$path[](bg:#none fg:#D65D0E)]($style)"
 truncation_length = 3
 truncate_to_repo = true
 
 [git_branch]
 # symbol = " "
 symbol = "  " # alternate
-style = "bg:#81B29A fg:#001220"
-format = "[[ ](bg:none fg:#81B29A)$symbol$branch[](bg:none fg:#81B29A )]($style)"
+style = "bg:#D79921 fg:#001220"
+format = "[[ ](bg:none fg:#D79921)$symbol$branch[](bg:none fg:#D79921 )]($style)"
 
 [character]
 success_symbol = "[󰜴](#689d6a bold)"
@@ -40,7 +40,7 @@ error_symbol = "[󰜴](#cc241d bold)"
 
 [cmd_duration]
 min_time = 1
-style = "bg:#F2CC8F fg:#001220"
-format = "[[](bg:none fg:#F2CC8F)󰔟 $duration[](bg:#none fg:#F2CC8F )]($style)"
+style = "bg:#A89984 fg:#001220"
+format = "[[](bg:none fg:#A89984)󰔟 $duration[](bg:#none fg:#A89984 )]($style)"
 disabled = false
 
