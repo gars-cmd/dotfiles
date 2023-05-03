@@ -1,46 +1,50 @@
 local colors = {
+    black       = '#001220',
 	red         = '#cc241d',
-	grey        = '#32302f',
-	black       = '#0b0e18',
+	grey        = '#504945',
+	gray2       = '#0b0e18',
 	white       = '#f9f5d7',
-	green       = '#98971a',
+	green       = '#6B705C',
 	orange      = '#d65d0e',
 	light_green = '#b8bb26',
 	blue        = '#458588',
     purple      = '#b16286',
 }
 
+
+local palette = require 'nordic.colors'
+
+
 local theme = {
 	normal = {
-		a  = { fg = colors.black, bg = colors.blue },
-		b  = { fg = colors.blue, bg  = colors.white },
-		c  = { fg = colors.white, bg = colors.black },
-		z  = { fg = colors.white, bg = colors.black },
+		a  = { fg = colors.black, bg = palette.blue.base },
+		b  = { fg = palette.blue.base, bg  = colors.grey },
+		c  = { fg = colors.grey, bg = colors.black },
+		z  = { fg = colors.grey, bg = colors.black },
 	},
 
-	insert  = { a = { fg = colors.black, bg = colors.orange } },
-	visual  = { a = { fg = colors.black, bg = colors.green } },
-	replace = { a = { fg = colors.black, bg = colors.green } },
+	insert  = { a = { fg = colors.black, bg = palette.red.dim } },
+	visual  = { a = { fg = colors.black, bg = palette.green.dim } },
+	replace = { a = { fg = colors.black, bg = palette.green.dim } },
 }
-
 local vim_icons = {
 	function()
 		return " "
 	end,
 	separator = { left = "", right = "" },
-	color = { bg = colors.grey, fg = colors.green },
+	color = { bg = colors.grey, fg = palette.green.dim },
 }
 
 local space = {
 	function()
 		return " "
 	end,
-	color = { bg = 'NONE', fg = colors.green },
+	color = { bg = 'NONE', fg = palette.green.dim },
 }
 
 local filename = {
 	'filename',
-	color = { bg = colors.blue, fg = colors.black },
+	color = { bg = palette.yellow.dim, fg = colors.black },
 	separator = { left = "", right = "" },
 }
 
@@ -65,37 +69,37 @@ local position = {
     symbols = {
         unix = '',
     },
-	color     = { bg   = colors.purple, fg = colors.grey },
+    color     = { bg   = colors.grey, fg = palette.white0 },
 	separator = { left = "", right        = "" },
 }
 
 local location = {
     'location',
-    color     = { bg   = colors.grey, fg = colors.white },
+	color     = { bg   = palette.cyan.base, fg = palette.black },
 	separator = { left = "", right      = "" },
 }
 
 local encoding = {
 	'encoding',
-	color     = { bg   = colors.grey, fg = colors.blue },
+	color     = { bg   = colors.grey, fg = palette.blue.base },
 	separator = { left = "", right      = "" },
 }
 
 local branch = {
 	'branch',
-	color     = { bg   = colors.light_green, fg = colors.black },
+	color     = { bg   = palette.green.dim, fg = palette.black },
 	separator = { left = "", right             = "" },
 }
 
 local diff = {
 	"diff",
-	color     = { bg   = colors.grey, fg = colors.purple },
+	color     = { bg   = colors.grey, fg = palette.green.dim },
 	separator = { left = "", right      = "" },
 }
 
 local modes = {
 	'mode', fmt = function(str) return str:sub(1, 1) end,
-	color     = { bg     = colors.orange, fg = colors.black },
+	color     = { bg     = palette.red.dim, fg = palette.black },
 	separator = {  right = "" },
 }
 
@@ -117,7 +121,7 @@ end
 
 local dia = {
 	'diagnostics',
-	color     = { bg   = colors.grey, fg = colors.blue },
+	color     = { bg   = colors.grey, fg = palette.blue.base },
 	separator = { left = "", right      = "" },
 }
 
@@ -126,7 +130,7 @@ local lsp = {
 		return getLspName()
 	end,
 	separator = { left = ""  },
-	color     = { bg   = colors.red, fg = colors.black },
+	color     = { bg   = palette.blue0, fg = palette.white0 },
 }
 
 require('lualine').setup {

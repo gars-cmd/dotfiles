@@ -29,21 +29,15 @@ return {
     --[[ 'sainnhe/gruvbox-material', ]]
     --[[ { "arturgoms/moonbow.nvim" }                , ]]
     { "ellisonleao/gruvbox.nvim", priority = 1000 },
-
-
-
-    --[[ ({ ]]
-    --[[     'rose-pine/neovim'                  , ]]
-    --[[     as = 'rose-pine'                    , ]]
-    --[[     config = function() ]]
-    --[[         vim.cmd('colorscheme rose-pine') ]]
-    --[[     end ]]
-    --[[ }) ]]
-    --[[ { ]]
-    --[[     'AlexvZyl/nordic.nvim', ]]
-    --[[     lazy = false, ]]
-    --[[     priority = 1000, ]]
-    --[[ }, ]]
+	{ 'rose-pine/neovim', name = 'rose-pine' },
+    {'sam4llis/nvim-tundra'},
+    { 'AlexvZyl/nordic.nvim',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require 'nordic' .load()
+    end
+    },
 
     {
         "nvim-tree/nvim-tree.lua"                ,

@@ -7,7 +7,7 @@ end
 
 
 configs.setup{
-  ensure_installed = "all", -- one of "all" or a list of languages
+  ensure_installed = { "c" , "cpp" , "lua" , "vim" , "vimdoc" , "python" , "java" , "cmake" , "fish" , "http" , "css" , "javascript" , "json", "markdown" , "mermaid" , "regex" , "sql" , "toml" }, -- one of "all" or a list of languages
   ignore_install   = { "" }, -- List of parsers to ignore installing
   auto_install     = true,
   highlight        = {
