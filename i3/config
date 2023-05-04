@@ -108,10 +108,7 @@ bindsym XF86AudioMute             exec --no-startup-id ~/.config/scripts/volume.
 bindsym XF86MonBrightnessUp       exec light -A 5
 bindsym XF86MonBrightnessDown     exec light -U 5
 
-# bindsym XF86AudioPlay           exec playerctl play-pause
-# bindsym XF86AudioPause          exec playerctl play-pause
-# bindsym XF86AudioNext notification from dunst for switch layout          exec playerctl next
-# bindsym XF86AudioPrev           exec playerctl previous
+
 
 bindsym XF86AudioPlay             exec --no-startup-id ~/.config/scripts/media.sh pplay
 bindsym XF86AudioPause            exec --no-startup-id ~/.config/scripts/media.sh pplay
@@ -119,7 +116,7 @@ bindsym XF86AudioNext             exec --no-startup-id ~/.config/scripts/media.s
 bindsym XF86AudioPrev             exec --no-startup-id ~/.config/scripts/media.sh back
 
 ## system command 
-bindsym $mod+q                    exec --no-startup-id ~/.config/rofi/powermenu.sh 
+bindsym $mod+shift+q                    exec --no-startup-id ~/.config/rofi/powermenu.sh 
 
 
 
