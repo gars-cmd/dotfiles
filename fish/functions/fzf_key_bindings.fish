@@ -1,0 +1,1 @@
+/home/gars/.config/zsh/plugins/fzf/shell/key-bindings.fish
