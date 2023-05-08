@@ -6,6 +6,6 @@
 # Author: gars-cmd
 
 
-printf 'reaname %s to: ' "$1"
+printf 'rename %s to: ' "$1"
 read -r resp
 mv "$1" "$resp"

@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# Description: copy the absoute path of the file directly to the clipboard 
+#
+# Shell: POSIX compliant
+# Author: gars-cmd
+
+
+printf 'copying %s : ' "$1"
+abs_path=$(readlink -f "$1")
+echo -n "$abs_path" | xclip -selection clipboard
