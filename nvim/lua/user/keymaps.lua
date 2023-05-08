@@ -109,8 +109,11 @@ keymap(
 -- vim.keymap.set('n', '<A-g>', builtin.live_grep, {})
 
 --nvim-tree
-keymap("n", "<C-n>", ":NvimTreeToggle<cr>", opts)
-keymap("n", "<C-h>", ":NvimTreeFocus<cr>", opts)
+--[[ keymap("n", "<C-n>", ":NvimTreeToggle<cr>", opts) ]]
+--[[ keymap("n", "<C-h>", ":NvimTreeFocus<cr>", opts) ]]
+
+ -- Open explorer
+keymap("n", "<C-n>", ":Ex<cr>", opts)
 
 -- hop
 keymap("n", "<A-w>", "<cmd>lua require'hop'.hint_words()<cr>", opts)    --move the cursor to a specific word

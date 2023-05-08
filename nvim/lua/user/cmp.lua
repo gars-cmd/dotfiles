@@ -23,11 +23,15 @@ require("luasnip/loaders/from_vscode").lazy_load()
 vim.opt.completeopt = "menu,menuone,noselect"
 
 
+
+
 -- Color Settingd 
-vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#b16286" , bg = "NONE" })
-vim.api.nvim_set_hl(0, "CmpItemKindFunction" , { fg = "#458588" , bg = "NONE" , bold = true })
-vim.api.nvim_set_hl(0, "CmpItemKindVariable" , { fg = "#8ec07c" , bg = "NONE" , bold = true })
-vim.api.nvim_set_hl(0, "CmpItemKindKeyword" , { fg = "#fabd2f" , bg = "NONE" , bold = true })
+vim.cmd('highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6')
+vim.cmd('highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6')
+vim.cmd('highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0')
+vim.cmd('highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0')
+vim.cmd('highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE')
+vim.cmd('highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4')
 
 
 
@@ -57,16 +61,16 @@ cmp.setup({
 		["<C-e>"] = cmp.mapping.abort(), -- close completion window
 		-- ["<CR>"] = cmp.mapping.confirm({ select = false }),
 		["<C-o>"] = cmp.mapping.confirm({ select = false }),
-
 		["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
 		-- ["<Tab>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
 	}),
 	-- sources for autocompletion
 	sources = cmp.config.sources({
+		{ name = "nvim_lua" }, -- lsp
 		{ name = "nvim_lsp" }, -- lsp
 		{ name = "luasnip" }, -- snippets
-		{ name = "buffer" }, -- text within current buffer
 		{ name = "path" }, -- file system paths
+		{ name = "buffer", keyword_length = 5 }, -- text within current buffer
 	}),
 	-- configure lspkind for vs-code like icons
 	formatting = {
@@ -77,3 +81,4 @@ cmp.setup({
 		}),
 	},
 })
+--FUTUR : for support of SQL completion see https://www.youtube.com/watch?v=_DnmphIwnjo at 16:30

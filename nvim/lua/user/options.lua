@@ -47,6 +47,7 @@ end
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
+--[[ vim.cmd "set guicursor=i:block" ]]
 
 
 
@@ -56,29 +57,32 @@ augroup MyColors
 autocmd!
 
 "MODIFY THE COLOR OF THE NUMBER LINE"
-autocmd ColorScheme * highlight LineNr         guibg=None guifg=#a89984
+autocmd ColorScheme * highlight LineNr         guibg=#001220 guifg=#a89984
 
 " TREE-NVIM BACKGROUND TO X"
-autocmd ColorScheme * highlight NvimTreeNormal guibg=#212529 
+" autocmd ColorScheme * highlight NvimTreeNormal guibg=#212529 
 
 " COLOR OF THE NVIM-CMP
-autocmd ColorScheme * highlight Pmenu          guibg=None
+autocmd ColorScheme * highlight Pmenu          guibg=#001220
 
 "COLOR OF THE BORDER AND THE BACKGROUND OF THE BORDER
-autocmd ColorScheme * highlight FloatBorder    guibg=None guifg=#a89984 
+autocmd ColorScheme * highlight FloatBorder    guibg=#001220 guifg=#a89984 
 
 "OVERRIDE THE THEME BACKGROUND 
-autocmd ColorScheme * highlight Normal         guibg=None
+autocmd ColorScheme * highlight Normal         guibg=#001220
 
 "OVERRIDE THE THEME BACKGROUND 
-autocmd ColorScheme * highlight NonText        guibg=None
+autocmd ColorScheme * highlight NonText        guibg=#001220
 
 "OVERRIDE THE BG OF THE CMP POPUP
-autocmd ColorScheme * highlight NormalFloat    guibg=None
+autocmd ColorScheme * highlight NormalFloat    guibg=#001220
 " autocmd ColorScheme * highlight PmenuSel       guibg=#778da9
 
 " CURSOR LINE
 " autocmd ColorScheme * highlight CursorLine     guibg=#778da9
+
+"SIGN COLUMN
+autocmd ColorScheme * highlight SignColumn guibg=#001220
 
 augroup end
 ]])

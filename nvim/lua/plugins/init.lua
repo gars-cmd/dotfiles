@@ -39,10 +39,10 @@ return {
     end
     },
 
-    {
-        "nvim-tree/nvim-tree.lua"                ,
-        tag = 'nightly'
-    }                                            ,
+    --[[ { ]]
+    --[[     "nvim-tree/nvim-tree.lua"                , ]]
+    --[[     tag = 'nightly' ]]
+    --[[ }                                            , ]]
 
     "gelguy/wilder.nvim"                         ,
     --LSP support
