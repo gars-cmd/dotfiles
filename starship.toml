@@ -16,31 +16,61 @@ add_newline = true
 
     #separator :   ,   ,  , 
 
+# # NORDIC THEME
+#
+# [username]
+# style_user = "bg:#69A7BA fg:#001220"
+# format = "[[](bold bg:none fg:#69A7BA) [](bg:#B46950 fg:#69A7BA)]($style)"
+# disabled = false
+# show_always = true
+#
+# [directory]
+# style = "bg:#B46950 fg:#001220"
+# format = "[[](bg:#B46950 fg:#B46950)$path[](bg:#none fg:#B46950)]($style)"
+# truncation_length = 3
+# truncate_to_repo = true
+#
+# [git_branch]
+# # symbol = " "
+# symbol = "  " # alternate
+# style = "bold bg:#D9B263 fg:#001220"
+# format = "[[ ](bg:none fg:#D9B263)$symbol$branch[](bg:none fg:#D9B263 )]($style)"
+#
+# [character]
+# success_symbol = "[󰜴](#A3BE8C bold)"
+# error_symbol = "[󰜴](#BF616A bold)"
+#
+# [cmd_duration]
+# min_time = 1
+# style = "bg:#A89984 fg:#001220"
+# format = "[[](bold bg:none fg:#A89984)󱇻  $duration[](bg:#none fg:#A89984 )]($style)"
+# disabled = false
+
+# ROSE-PINE THEME
 [username]
-style_user = "bg:#69A7BA fg:#001220"
-format = "[[](bold bg:none fg:#69A7BA) [](bg:#B46950 fg:#69A7BA)]($style)"
+style_user = "bg:#31748F fg:#001220"
+format = "[[](bold bg:none fg:#31748F) [](bg:#EBBCBA fg:#31748F)]($style)"
 disabled = false
 show_always = true
 
 [directory]
-style = "bg:#B46950 fg:#001220"
-format = "[[](bg:#B46950 fg:#B46950)$path[](bg:#none fg:#B46950)]($style)"
+style = "bg:#EBBCBA fg:#001220"
+format = "[[](bg:#EBBCBA fg:#EBBCBA)$path[](bg:#none fg:#EBBCBA)]($style)"
 truncation_length = 3
 truncate_to_repo = true
 
 [git_branch]
 # symbol = " "
 symbol = "  " # alternate
-style = "bold bg:#D9B263 fg:#001220"
-format = "[[ ](bg:none fg:#D9B263)$symbol$branch[](bg:none fg:#D9B263 )]($style)"
+style = "bold bg:#F6C177 fg:#001220"
+format = "[[ ](bg:none fg:#F6C177)$symbol$branch[](bg:none fg:#F6C177 )]($style)"
 
 [character]
-success_symbol = "[󰜴](#A3BE8C bold)"
-error_symbol = "[󰜴](#BF616A bold)"
+success_symbol = "[󰜴](#9CCFD8 bold)"
+error_symbol = "[󰜴](#EB6F92 bold)"
 
 [cmd_duration]
 min_time = 1
-style = "bg:#A89984 fg:#001220"
-format = "[[](bold bg:none fg:#A89984)󱇻  $duration[](bg:#none fg:#A89984 )]($style)"
+style = "bg:#E0DEF4 fg:#001220"
+format = "[[](bold bg:none fg:#E0DEF4)󱇻  $duration[](bg:#none fg:#E0DEF4 )]($style)"
 disabled = false
-

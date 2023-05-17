@@ -96,9 +96,8 @@ return {
     "lewis6991/gitsigns.nvim"                    , --GIT
 
     -- StatusBar
-    {"nvim-lualine/lualine.nvim",dependencies = { "ryanoasis/vim-devicons", opt = true },
-    }                                            ,
-
+    {"nvim-lualine/lualine.nvim",dependencies = { "ryanoasis/vim-devicons", opt = true }},
+    {'ThePrimeagen/harpoon'},
     -- DEBUGGING WITH DAP
     {"mfussenegger/nvim-dap"},
     {"jay-babu/mason-nvim-dap.nvim"},

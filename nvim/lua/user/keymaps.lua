@@ -126,6 +126,6 @@ keymap("n", "gt", ":TroubleToggle<cr>", opts)
 -- keymap for symbols-outlines plugin
 keymap("n", "<A-t>", ":SymbolsOutline<cr>", opts)
 
---keymaps for toggleterm
---[[ keymap("n", "<C-t>", ":ToggleTerm<cr>", opts) ]]
-
+keymap ("n", "<A-h>", "<cmd>lua require'harpoon.ui'.toggle_quick_menu()<cr>", opts)
+keymap ("n", "<C-m>", "<cmd>lua require'harpoon.mark'.add_file()<cr>", opts)
+keymap ("n", "<C-Right>", "<cmd>lua require'harpoon.ui'.nav_next()<cr>", opts)
