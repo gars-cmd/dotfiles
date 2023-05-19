@@ -57,32 +57,35 @@ augroup MyColors
 autocmd!
 
 "MODIFY THE COLOR OF THE NUMBER LINE"
-autocmd ColorScheme * highlight LineNr         guibg=#001220 guifg=#a89984
+autocmd ColorScheme * highlight LineNr         guibg=NONE guifg=#a89984
 
 " TREE-NVIM BACKGROUND TO X"
 " autocmd ColorScheme * highlight NvimTreeNormal guibg=#212529 
 
 " COLOR OF THE NVIM-CMP
-autocmd ColorScheme * highlight Pmenu          guibg=#001220
+autocmd ColorScheme * highlight Pmenu          guibg=NONE
 
 "COLOR OF THE BORDER AND THE BACKGROUND OF THE BORDER
-autocmd ColorScheme * highlight FloatBorder    guibg=#001220 guifg=#a89984 
+autocmd ColorScheme * highlight FloatBorder    guibg=NONE guifg=#a89984 
 
 "OVERRIDE THE THEME BACKGROUND 
-autocmd ColorScheme * highlight Normal         guibg=#001220
+autocmd ColorScheme * highlight Normal         guibg=NONE
 
 "OVERRIDE THE THEME BACKGROUND 
-autocmd ColorScheme * highlight NonText        guibg=#001220
+autocmd ColorScheme * highlight NonText        guibg=NONE
 
 "OVERRIDE THE BG OF THE CMP POPUP
-autocmd ColorScheme * highlight NormalFloat    guibg=#001220
+autocmd ColorScheme * highlight NormalFloat    guibg=NONE
 " autocmd ColorScheme * highlight PmenuSel       guibg=#778da9
 
 " CURSOR LINE
 " autocmd ColorScheme * highlight CursorLine     guibg=#778da9
 
 "SIGN COLUMN
-autocmd ColorScheme * highlight SignColumn guibg=#001220
+autocmd ColorScheme * highlight SignColumn guibg=NONE
+autocmd ColorScheme * highlight GitSignsAdd guibg=NONE
+autocmd ColorScheme * highlight GitSignsChange guibg=NONE
+autocmd ColorScheme * highlight GitSignsDelete guibg=NONE
 
 augroup end
 ]])

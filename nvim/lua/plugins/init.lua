@@ -23,11 +23,6 @@ return {
 
     --COLORSCHEME
 
-    -- ("folke/tokyonight.nvim") 
-    -- ("rebelot/kanagawa.nvim")
-    --  {'nyoom-engineering/oxocrbon.nvim'}
-    --[[ 'sainnhe/gruvbox-material', ]]
-    --[[ { "arturgoms/moonbow.nvim" }                , ]]
     { "ellisonleao/gruvbox.nvim", priority = 1000 },
 	{ 'rose-pine/neovim', name = 'rose-pine' },
     {'sam4llis/nvim-tundra'},
@@ -38,6 +33,8 @@ return {
             require 'nordic' .load()
     end
     },
+    { "catppuccin/nvim" , name = "catpuccin"},
+    { "rebelot/kanagawa.nvim"},
 
     --[[ { ]]
     --[[     "nvim-tree/nvim-tree.lua"                , ]]

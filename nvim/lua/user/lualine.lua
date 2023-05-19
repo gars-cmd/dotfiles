@@ -1,65 +1,65 @@
 local colors = {
-    black       = '#001220',
-	red         = '#b4637a',
-	grey        = '#dfdad9',
-	gray2       = '#26233a',
-	white       = '#e0def4',
-	green       = '#31748f',
-	orange      = '#ea9d34',
-	blue        = '#9ccfd8',
-    purple      = '#c4a7e7',
+    fg = "#838994",
+    bg = "#e4d794",
 }
 
 
-local colors_n = require 'nordic.colors'
+--[[ local colors_n = require 'nordic.colors' ]]
 
 
 local theme = {
 	normal = {
-		a  = { fg = colors.black, bg = colors.blue },
-		b  = { fg = colors.blue, bg  = colors.grey },
-		c  = { fg = colors.grey, bg = colors.black },
-		z  = { fg = colors.grey, bg = colors.black },
+		a  = { fg = colors.fg, bg = colors.bg },
+		b  = { fg = colors.fg, bg  = colors.bg },
+		c  = { fg = colors.fg, bg = colors.bg },
+		--[[ z  = { fg = colors.fg, bg = colors.bg }, ]]
 	},
 
-	insert  = { a = { fg = colors.black, bg = colors.red } },
-	visual  = { a = { fg = colors.black, bg = colors.green } },
-	replace = { a = { fg = colors.black, bg = colors.green } },
+    inactive = {
+		a  = { fg = colors.fg, bg = colors.bg },
+		b  = { fg = colors.fg, bg  = colors.bg },
+		c  = { fg = colors.fg, bg = colors.bg },
+		--[[ z  = { fg = colors.fg, bg = colors.bg }, ]]
+    },
+
+	insert  = { a = { fg = colors.fg, bg = colors.bg } },
+	visual  = { a = { fg = colors.fg, bg = colors.bg } },
+	replace = { a = { fg = colors.fg, bg = colors.bg } },
 }
 local vim_icons = {
 	function()
 		return " "
 	end,
-	separator = { left = "", right = "" },
-	color = { bg = colors.grey, fg = colors.green },
+	--[[ separator = { left = "", right = "" }, ]]
+	color = { bg = colors.bg, fg = colors.fg },
 }
 
 local space = {
 	function()
 		return " "
 	end,
-	color = { bg = 'NONE', fg = colors.green},
+	color = { bg =colors.bg, fg = colors.fg},
 }
 
 local filename = {
 	'filename',
-	color = { bg = colors.orange, fg = colors.black },
-	separator = { left = "", right = "" },
+	color = { bg = colors.bg, fg = colors.fg },
+	--[[ separator = { left = "", right = "" }, ]]
 }
 
 local filetype = {
 	"filetype",
 	icon_only = true,
 	colored   = true,
-	color     = { bg   = colors.grey },
-	separator = { left = "", right = "" },
+	color     = { bg   = colors.bg },
+	--[[ separator = { left = "", right = "" }, ]]
 }
 
 local filetype_tab = {
 	"filetype",
 	icon_only = true,
 	colored   = true,
-	color     = { bg = colors.grey },
+	color     = { bg = colors.bg},
 }
 
 
@@ -68,38 +68,38 @@ local position = {
     symbols = {
         unix = '',
     },
-    color     = { bg   = colors.grey, fg = colors.green },
-	separator = { left = "", right        = "" },
+    color     = { bg   = colors.bg, fg = colors.fg },
+	--[[ separator = { left = "", right        = "" }, ]]
 }
 
 local location = {
     'location',
-	color     = { bg   = colors.blue, fg = colors.black },
-	separator = { left = "", right      = "" },
+	color     = { bg   = colors.bg, fg = colors.fg },
+	--[[ separator = { left = "", right      = "" }, ]]
 }
 
 local encoding = {
 	'encoding',
-	color     = { bg   = colors.grey, fg = colors.blue},
-	separator = { left = "", right      = "" },
+	color     = { bg   = colors.bg, fg = colors.fg},
+	--[[ separator = { left = "", right      = "" }, ]]
 }
 
 local branch = {
 	'branch',
-	color     = { bg   = colors.green, fg = colors.black },
-	separator = { left = "", right             = "" },
+	color     = { bg   = colors.bg, fg = colors.fg },
+	--[[ separator = { left = "", right             = "" }, ]]
 }
 
 local diff = {
 	"diff",
-	color     = { bg   = colors.grey, fg = colors.green},
-	separator = { left = "", right      = "" },
+	color     = { bg   = colors.bg, fg = colors.fg},
+	--[[ separator = { left = "", right      = "" }, ]]
 }
 
 local modes = {
 	'mode', fmt = function(str) return str:sub(1, 1) end,
-	color     = { bg     = colors.red, fg = colors.black },
-	separator = {  right = "" },
+	color     = { bg     = colors.bg, fg = colors.fg },
+	--[[ separator = {  right = "" }, ]]
 }
 
 local function getLspName()
@@ -120,16 +120,16 @@ end
 
 local dia = {
 	'diagnostics',
-	color     = { bg   = colors.grey, fg = colors.blue},
-	separator = { left = "", right      = "" },
+	color     = { bg   = colors.bg, fg = colors.fg},
+	--[[ separator = { left = "", right      = "" }, ]]
 }
 
 local lsp = {
 	function()
 		return getLspName()
 	end,
-	separator = { left = ""  },
-	color     = { bg   = colors.blue, fg = colors.black },
+	--[[ separator = { left = ""  }, ]]
+	color     = { bg   = colors.bg, fg = colors.fg },
 }
 
 require('lualine').setup {
@@ -147,9 +147,9 @@ require('lualine').setup {
         always_divide_middle = true,
         globalstatus         = true,
 		refresh              = {
-			statusline = 1000,
-			tabline    = 1000,
-			winbar     = 1000,
+			--[[ statusline = 1000, ]]
+			--[[ tabline    = 1000, ]]
+			--[[ winbar     = 1000, ]]
 		}
 	},
 
@@ -186,24 +186,23 @@ require('lualine').setup {
 		}
 	},
 	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
+		--[[ lualine_a = {}, ]]
+		--[[ lualine_b = {}, ]]
 		lualine_c = { 'filename' },
 		lualine_x = { 'location' },
 		lualine_y = {},
 		lualine_z = {}
 	},
-	tabline = {
-		lualine_b = {
-		},
-		lualine_c = {},
-		lualine_y = {
-			space,
-		},
-		lualine_z = {
-		},
-	},
-	winbar          = {},
-	inactive_winbar = {},
+	--[[ tabline = { ]]
+	--[[ 	lualine_b = {}, ]]
+	--[[ 	lualine_c = {}, ]]
+	--[[ 	lualine_y = { ]]
+	--[[ 		space, ]]
+	--[[ 	}, ]]
+	--[[ 	lualine_z = { ]]
+	--[[ 	}, ]]
+	--[[ }, ]]
+	--[[ winbar          = {}, ]]
+	--[[ inactive_winbar = {}, ]]
 
 }

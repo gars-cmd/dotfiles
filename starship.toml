@@ -47,30 +47,61 @@ add_newline = true
 # disabled = false
 
 # ROSE-PINE THEME
+# [username]
+# style_user = "bg:#31748F fg:#001220"
+# format = "[[](bold bg:none fg:#31748F) [](bg:#EBBCBA fg:#31748F)]($style)"
+# disabled = false
+# show_always = true
+#
+# [directory]
+# style = "bg:#EBBCBA fg:#001220"
+# format = "[[](bg:#EBBCBA fg:#EBBCBA)$path[](bg:#none fg:#EBBCBA)]($style)"
+# truncation_length = 3
+# truncate_to_repo = true
+#
+# [git_branch]
+# # symbol = " "
+# symbol = "  " # alternate
+# style = "bold bg:#F6C177 fg:#001220"
+# format = "[[ ](bg:none fg:#F6C177)$symbol$branch[](bg:none fg:#F6C177 )]($style)"
+#
+# [character]
+# success_symbol = "[󰜴](#9CCFD8 bold)"
+# error_symbol = "[󰜴](#EB6F92 bold)"
+#
+# [cmd_duration]
+# min_time = 1
+# style = "bg:#E0DEF4 fg:#001220"
+# format = "[[](bold bg:none fg:#E0DEF4)󱇻  $duration[](bg:#none fg:#E0DEF4 )]($style)"
+# disabled = false
+
+# KANAGAWA-LIGHT THEME
 [username]
-style_user = "bg:#31748F fg:#001220"
-format = "[[](bold bg:none fg:#31748F) [](bg:#EBBCBA fg:#31748F)]($style)"
+style_user = "bg:#5d57a3 fg:#d5cea3"
+format = "[[](bold bg:none fg:#5d57a3) [](bg:#b35b79 fg:#5d57a3)]($style)"
 disabled = false
 show_always = true
 
 [directory]
-style = "bg:#EBBCBA fg:#001220"
-format = "[[](bg:#EBBCBA fg:#EBBCBA)$path[](bg:#none fg:#EBBCBA)]($style)"
+style = "bg:#B35B79 fg:#d5cea3"
+format = "[[](bg:#B35B79 fg:#B35B79)$path[](bg:#none fg:#B35B79)]($style)"
 truncation_length = 3
 truncate_to_repo = true
 
 [git_branch]
 # symbol = " "
 symbol = "  " # alternate
-style = "bold bg:#F6C177 fg:#001220"
-format = "[[ ](bg:none fg:#F6C177)$symbol$branch[](bg:none fg:#F6C177 )]($style)"
+style = "bold bg:#de9800 fg:#d5cea3"
+format = "[[ ](bg:none fg:#de9800)$symbol$branch[](bg:none fg:#de9800 )]($style)"
 
 [character]
-success_symbol = "[󰜴](#9CCFD8 bold)"
-error_symbol = "[󰜴](#EB6F92 bold)"
+success_symbol = "[󰜴](#6e915f bold)"
+error_symbol = "[󰜴](#d7474b bold)"
 
 [cmd_duration]
 min_time = 1
-style = "bg:#E0DEF4 fg:#001220"
-format = "[[](bold bg:none fg:#E0DEF4)󱇻  $duration[](bg:#none fg:#E0DEF4 )]($style)"
+style = "bg:#43436c fg:#d5cea3"
+format = "[[](bold bg:none fg:#43436c)󱇻  $duration[](bg:#none fg:#43436c )]($style)"
 disabled = false
+
+
