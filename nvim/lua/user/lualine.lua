@@ -1,6 +1,6 @@
 local colors = {
-    fg = "#838994",
-    bg = "#e4d794",
+    bg = "#C0A36E",
+    fg = "#16161D",
 }
 
 
@@ -96,6 +96,19 @@ local diff = {
 	--[[ separator = { left = "", right      = "" }, ]]
 }
 
+local function harpoon_component()
+    local mark_idx = require("harpoon.mark").get_current_index()
+    local total_marks = require("harpoon.mark").get_length()
+	if mark_idx == nil then
+		return ""
+	end
+
+	return string.format("󱡅  %d/%d", mark_idx, total_marks)
+end
+
+
+
+
 local modes = {
 	'mode', fmt = function(str) return str:sub(1, 1) end,
 	color     = { bg     = colors.bg, fg = colors.fg },
@@ -170,6 +183,7 @@ require('lualine').setup {
 			space,
 			branch,
 			diff,
+            { harpoon_component },
 		},
 		lualine_x = {
 			space,

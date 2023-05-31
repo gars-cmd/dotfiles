@@ -1,4 +1,3 @@
-
 local options = {
     backup           = false,				             --create backup of the file
     clipboard        = "unnamedplus",      	     -- allows neovim to access the system clipboard
@@ -10,7 +9,7 @@ local options = {
     ignorecase       = true,                       -- ignore case in search patterns
     mouse            = "a",                             -- allow the mouse to be used in neovim
     pumheight        = 10,                          -- pop up menu height
-    showtabline      = 2,                         -- always show tabs
+    showtabline      = 1,                         -- always show tabs
     smartcase        = true,                        -- smart case
     smartindent      = true,                      -- make indenting smarter again
     splitbelow       = true,                       -- force all horizontal splits to go below current window
@@ -56,8 +55,8 @@ vim.cmd([[
 augroup MyColors
 autocmd!
 
-"MODIFY THE COLOR OF THE NUMBER LINE"
-autocmd ColorScheme * highlight LineNr         guibg=NONE guifg=#a89984
+" MODIFY THE COLOR OF THE NUMBER LINE"
+autocmd ColorScheme * highlight LineNr         guibg=NONE guifg=#665c54
 
 " TREE-NVIM BACKGROUND TO X"
 " autocmd ColorScheme * highlight NvimTreeNormal guibg=#212529 
@@ -66,7 +65,7 @@ autocmd ColorScheme * highlight LineNr         guibg=NONE guifg=#a89984
 autocmd ColorScheme * highlight Pmenu          guibg=NONE
 
 "COLOR OF THE BORDER AND THE BACKGROUND OF THE BORDER
-autocmd ColorScheme * highlight FloatBorder    guibg=NONE guifg=#a89984 
+autocmd ColorScheme * highlight FloatBorder    guibg=NONE guifg=#665c54 
 
 "OVERRIDE THE THEME BACKGROUND 
 autocmd ColorScheme * highlight Normal         guibg=NONE
@@ -82,10 +81,24 @@ autocmd ColorScheme * highlight NormalFloat    guibg=NONE
 " autocmd ColorScheme * highlight CursorLine     guibg=#778da9
 
 "SIGN COLUMN
-autocmd ColorScheme * highlight SignColumn guibg=NONE
-autocmd ColorScheme * highlight GitSignsAdd guibg=NONE
-autocmd ColorScheme * highlight GitSignsChange guibg=NONE
-autocmd ColorScheme * highlight GitSignsDelete guibg=NONE
+autocmd ColorScheme * highlight SignColumn guibg=NONE guifg=NONE
+autocmd ColorScheme * highlight GitSignsAdd guibg=NONE guifg=#98971A
+autocmd ColorScheme * highlight GitSignsChange guibg=NONE guifg=#D79921
+autocmd ColorScheme * highlight GitSignsDelete guibg=NONE guifg=#CC241D
 
 augroup end
 ]])
+
+vim.g.clipboard = {
+    name = "xsel",
+    copy = {
+        ["+"] = "xsel --nodetach -ib",
+        ["*"] = "xsel --nodetach -ip"
+    },
+    paste = {
+        ["+"] = "xsel -ob",
+        ["*"] = "xsel -op"
+    },
+    cache_enabled = true,
+}
+vim.opt.clipboard:append("unnamedplus")

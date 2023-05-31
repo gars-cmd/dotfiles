@@ -1,4 +1,7 @@
 --[[]]
+
+-- DARK COLORSCHEME
+
 ------------------------ ROSE-PINE -------------------------
 --[[ require('rose-pine').setup({ ]]
 --[[ 	dark_variant = 'dawn', ]]
@@ -30,30 +33,48 @@
 --
 
 --[[ CATPUCCIN-LATTE ]]
---[[ require("catppuccin").setup({ ]]
---[[     flavour = "latte", -- latte, frappe, macchiato, mocha ]]
---[[     background = { -- :h background ]]
---[[         light = "latte", ]]
---[[         dark = "mocha", ]]
---[[     }, ]]
---[[ }) ]]
---[[ vim.cmd('colorscheme catppuccin') ]]
+-- require("catppuccin").setup({
+--     flavour = "latte", -- latte, frappe, macchiato, mocha
+--     background = { -- :h background
+--         light = "latte",
+--         dark = "mocha",
+--     },
+-- })
+-- vim.cmd('colorscheme catppuccin')
 
 
- --[[ KANAGAWA ]]
-require('kanagawa').setup({
-    colors = {                   -- add/modify theme and palette colors
-        palette = {},
-        theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
-    },
-    overrides = function(colors) -- add/modify highlights
-        return {}
-    end,
-    theme = "wave",              -- Load "wave" theme when 'background' option is not set
-    background = {               -- map the value of 'background' option to a theme
-        dark = "wave",           -- try "dragon" !
-        light = "lotus"
-    },
+
+-- LIGHT COLORSCHEME
+
+ --[[ GRUVBOX ]]
+ require("gruvbox").setup({
+    -- palette_overrides = {
+    --     bright_green = "#990000",
+    -- }
 })
--- setup must be called before loading
-vim.cmd("colorscheme kanagawa-lotus")
+vim.cmd("colorscheme gruvbox")
+-- vim.o.background = "light"
+-- vim.cmd([[colorscheme gruvbox]])
+
+
+--[[ KANAGAWA ]]
+ -- require('kanagawa').setup({
+ --     colors = {                   -- add/modify theme and palette colors
+ --         palette = {},
+ --         theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+ --     },
+ --     overrides = function(colors) -- add/modify highlights
+ --         return {}
+ --     end,
+ --     theme = "wave",              -- Load "wave" theme when 'background' option is not set
+ --     background = {               -- map the value of 'background' option to a theme
+ --         dark = "wave",           -- try "dragon" !
+ --         light = "lotus"
+ --     },
+ -- })
+ -- -- setup must be called before loading
+ -- vim.cmd("colorscheme kanagawa-lotus")
+
+-- OXOCARBON
+--[[ vim.opt.background = "light" ]]
+--[[ vim.cmd("colorscheme oxocarbon") ]]

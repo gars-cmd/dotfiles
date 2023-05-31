@@ -30,4 +30,15 @@ configs.setup{
     enable              = true,
     enable_autocmd      = false,
   },
+    textobjects = {
+        swap = {
+            enable = true,
+            swap_next = {
+                ["<C-.>"] = "@parameter.inner",
+            },
+            swap_previous = {
+                ["<C-,>"] = "@parameter.inner",
+            },
+        },
+    }
 }
