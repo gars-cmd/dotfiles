@@ -47,14 +47,20 @@
 -- LIGHT COLORSCHEME
 
  --[[ GRUVBOX ]]
- require("gruvbox").setup({
-    -- palette_overrides = {
-    --     bright_green = "#990000",
-    -- }
-})
-vim.cmd("colorscheme gruvbox")
+--[[  require("gruvbox").setup({ ]]
+--[[     -- palette_overrides = { ]]
+--[[     --     bright_green = "#990000", ]]
+--[[     -- } ]]
+--[[ }) ]]
+--[[ vim.cmd("colorscheme gruvbox") ]]
 -- vim.o.background = "light"
 -- vim.cmd([[colorscheme gruvbox]])
+--
+ --[[ NIGHTFOX(DAWNFOX) ]]
+require('nightfox').setup({
+
+})
+vim.cmd("colorscheme terafox")
 
 
 --[[ KANAGAWA ]]
