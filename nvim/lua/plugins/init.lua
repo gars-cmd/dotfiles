@@ -7,7 +7,20 @@ return {
     "JoosepAlviste/nvim-ts-context-commentstring",
     "lukas-reineke/indent-blankline.nvim",
     "NvChad/nvim-colorizer.lua",
-    "simrat39/symbols-outline.nvim",
+    { "m4xshen/hardtime.nvim", opts = {} },
+    {'MunifTanjim/nui.nvim'},
+    {"SmiteshP/nvim-navic", dependencies = "neovim/nvim-lspconfig"},
+    {
+        "SmiteshP/nvim-navbuddy",
+    dependencies = {
+        "neovim/nvim-lspconfig",
+        "SmiteshP/nvim-navic",
+        "MunifTanjim/nui.nvim",
+        "numToStr/Comment.nvim",        -- Optional
+        "nvim-telescope/telescope.nvim" -- Optional
+    }
+    },
+    --[[ "simrat39/symbols-outline.nvim", ]]
     { "ellisonleao/gruvbox.nvim", priority = 1000 },
 	{ 'rose-pine/neovim', lazy = true, name = 'rose-pine' },
     {'sam4llis/nvim-tundra', lazy = true },

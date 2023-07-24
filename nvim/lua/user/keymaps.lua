@@ -124,7 +124,7 @@ keymap("n", "gf", "<cmd>lua vim.lsp.buf.format()<cr>", opts)            -- key b
 keymap("n", "gt", ":TroubleToggle<cr>", opts)
 
 -- keymap for symbols-outlines plugin
-keymap("n", "<A-t>", ":SymbolsOutline<cr>", opts)
+keymap("n", "<A-t>", ":Navbuddy<cr>", opts)
 
 keymap ("n", "<A-h>", "<cmd>lua require'harpoon.ui'.toggle_quick_menu()<cr>", opts)
 keymap ("n", "<C-m>", "<cmd>lua require'harpoon.mark'.add_file()<cr>", opts)

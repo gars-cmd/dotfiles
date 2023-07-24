@@ -17,9 +17,6 @@ require "user.indent"
 require "user.colorizer"
 require "user.ts-autotag"
 require "user.treesitter-context"
-require "user.symbols_outline"
 require "user.wilder"
 require "user.navbuddy"
 require "user.luasnip"
-
-
