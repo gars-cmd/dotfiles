@@ -6,8 +6,8 @@ navbuddy.setup {
         border = "rounded",  -- "rounded", "double", "solid", "none"
                             -- or an array with eight chars building up the border in a clockwise fashion
                             -- starting with the top-left corner. eg: { "╔", "═" ,"╗", "║", "╝", "═", "╚", "║" }.
-        size = "60%",       -- Or table format example: { height = "40%", width = "100%"}
-        position = "50%",   -- Or table format example: { row = "100%", col = "0%"}
+        size = { height = "40%" , width = "100%"},       -- Or table format example: { height = "40%", width = "100%"}
+        position = { row = "100%", col = "0%" },   -- Or table format example: { row = "100%", col = "0%"}
         scrolloff = nil,    -- scrolloff value within navbuddy window
         sections = {
             left = {
@@ -118,7 +118,7 @@ navbuddy.setup {
         ["g?"] = actions.help(),            -- Open mappings help window
     },
     lsp = {
-        auto_attach = false,   -- If set to true, you don't need to manually use attach function
+        auto_attach = true,   -- If set to true, you don't need to manually use attach function
         preference = nil,      -- list of lsp server names in order of preference
     },
     source_buffer = {

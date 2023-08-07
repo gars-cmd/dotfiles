@@ -5,6 +5,8 @@ if not cmp_status_ok then
 end
 
 
+local icons = require("cmp")
+
 -- import luasnip plugin safely
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
@@ -22,8 +24,6 @@ end
 require("luasnip/loaders/from_vscode").lazy_load()
 
 vim.opt.completeopt = "menu,menuone,noselect"
-
-
 
 
 -- Color Settingd 
@@ -54,7 +54,6 @@ cmp.setup({
 	},
 
 	mapping = cmp.mapping.preset.insert({
-		--[[ ["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion ]]
 		["<C-p>"] = cmp.mapping(function (fallback)
 		    if cmp.visible() then
 		        cmp.select_prev_item()
@@ -78,26 +77,36 @@ cmp.setup({
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
 		["<C-e>"] = cmp.mapping.abort(), -- close completion window
-		-- ["<CR>"] = cmp.mapping.confirm({ select = false }),
 		["<C-o>"] = cmp.mapping.confirm({ select = false }),
 		["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
-		-- ["<Tab>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
 	}),
 	-- sources for autocompletion
-	sources = cmp.config.sources({
-		{ name = "luasnip" }, -- snippets
-		{ name = "nvim_lsp" }, -- lsp
-		{ name = "nvim_lua" }, -- lsp
-		{ name = "path" }, -- file system paths
-		{ name = "buffer", keyword_length = 5 }, -- text within current buffer
-	}),
+	sources = {
+        {
+                name = "nvim_lsp",
+                max_item_count = 80,
+            },
+            {
+                name = "buffer",
+                max_item_count = 20,
+                option = {
+                    get_bufnrs = function()
+                        return vim.tbl_map(function(win)
+                            return vim.api.nvim_win_get_buf(win)
+                        end, vim.api.nvim_list_wins())
+                    end,
+                },
+            },
+    },
 	-- configure lspkind for vs-code like icons
 	formatting = {
         fields = {"kind", "abbr", "menu"},
-		format = lspkind.cmp_format({
-			maxwidth = 50,
-			ellipsis_char = "...",
-		}),
+		format = function (_, item)
+            local kind = item.kind
+            item.kind = icons.kind[kind]
+            item.menu = kind:gsub("(%1)(%u)", "%1 %2"):lower()
+            return item
+		end,
 	},
 })
 --FUTUR : for support of SQL completion see https://www.youtube.com/watch?v=_DnmphIwnjo at 16:30

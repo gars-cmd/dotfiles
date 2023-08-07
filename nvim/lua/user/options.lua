@@ -82,9 +82,22 @@ autocmd ColorScheme * highlight NormalFloat    guibg=NONE
 
 "SIGN COLUMN
 autocmd ColorScheme * highlight SignColumn guibg=NONE guifg=NONE
+
+" Git 
 autocmd ColorScheme * highlight GitSignsAdd guibg=NONE guifg=#98971A
 autocmd ColorScheme * highlight GitSignsChange guibg=NONE guifg=#D79921
 autocmd ColorScheme * highlight GitSignsDelete guibg=NONE guifg=#CC241D
+
+" Telescope relative 
+autocmd ColorScheme * highlight TelescopeNormal guibg=NONE 
+autocmd ColorScheme * highlight TelescopePreviewNormal guibg=NONE 
+autocmd ColorScheme * highlight TelescopePromptNormal guibg=NONE 
+autocmd ColorScheme * highlight TelescopeResultsNormal guibg=NONE 
+autocmd ColorScheme * highlight TelescopeSelection guibg=NONE
+
+autocmd ColorScheme * highlight TelescopeBorder guibg=NONE guifg=#fec553
+autocmd ColorScheme * highlight TelescopePromptBorder guibg=NONE guifg=#fec553
+autocmd ColorScheme * highlight TelescopePreviewBorder guibg=NONE guifg=#fec553
 
 augroup end
 ]])

@@ -57,11 +57,13 @@
 -- vim.cmd([[colorscheme gruvbox]])
 --
  --[[ NIGHTFOX(DAWNFOX) ]]
-require('nightfox').setup({
+--[[ require('nightfox').setup({ ]]
+--[[]]
+--[[ }) ]]
+--[[ vim.cmd("colorscheme terafox") ]]
 
-})
-vim.cmd("colorscheme terafox")
-
+--[[ FALCON ]]
+vim.cmd("colorscheme falcon")
 
 --[[ KANAGAWA ]]
  -- require('kanagawa').setup({

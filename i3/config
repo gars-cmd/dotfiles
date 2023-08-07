@@ -1,7 +1,7 @@
 # i3 config file (v4)
 
 exec_always --no-startup-id autotiling
-exec_always --no-startup-id  ~/.config/picom/build/src/picom
+exec_always --no-startup-id  /usr/local/bin/picom
 exec_always $xborder -c ~/xborder/config.json
 exec_always setxkbmap -option grp:alt_space us,il
 exec_always greenclip daemon
