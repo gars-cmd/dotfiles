@@ -1,107 +1,93 @@
-# Use custom format:
+# ~/.config/starship.toml
 
-
-# format="$directory$git_branch$character"
-format = """
-$username\
-$directory\
-$git_branch
-$character
-"""
-
-
-right_format = """$cmd_duration"""
-
-add_newline = true
-
-    #separator :   ,   ,  , 
-
-# # NORDIC THEME
-#
-# [username]
-# style_user = "bg:#69A7BA fg:#001220"
-# format = "[[](bold bg:none fg:#69A7BA) [](bg:#B46950 fg:#69A7BA)]($style)"
-# disabled = false
-# show_always = true
-#
-# [directory]
-# style = "bg:#B46950 fg:#001220"
-# format = "[[](bg:#B46950 fg:#B46950)$path[](bg:#none fg:#B46950)]($style)"
-# truncation_length = 3
-# truncate_to_repo = true
-#
-# [git_branch]
-# # symbol = " "
-# symbol = "  " # alternate
-# style = "bold bg:#D9B263 fg:#001220"
-# format = "[[ ](bg:none fg:#D9B263)$symbol$branch[](bg:none fg:#D9B263 )]($style)"
-#
-# [character]
-# success_symbol = "[󰜴](#A3BE8C bold)"
-# error_symbol = "[󰜴](#BF616A bold)"
-#
-# [cmd_duration]
-# min_time = 1
-# style = "bg:#A89984 fg:#001220"
-# format = "[[](bold bg:none fg:#A89984)󱇻  $duration[](bg:#none fg:#A89984 )]($style)"
-# disabled = false
-
-# ROSE-PINE THEME
-# [username]
-# style_user = "bg:#31748F fg:#001220"
-# format = "[[](bold bg:none fg:#31748F) [](bg:#EBBCBA fg:#31748F)]($style)"
-# disabled = false
-# show_always = true
-#
-# [directory]
-# style = "bg:#EBBCBA fg:#001220"
-# format = "[[](bg:#EBBCBA fg:#EBBCBA)$path[](bg:#none fg:#EBBCBA)]($style)"
-# truncation_length = 3
-# truncate_to_repo = true
-#
-# [git_branch]
-# # symbol = " "
-# symbol = "  " # alternate
-# style = "bold bg:#F6C177 fg:#001220"
-# format = "[[ ](bg:none fg:#F6C177)$symbol$branch[](bg:none fg:#F6C177 )]($style)"
-#
-# [character]
-# success_symbol = "[󰜴](#9CCFD8 bold)"
-# error_symbol = "[󰜴](#EB6F92 bold)"
-#
-# [cmd_duration]
-# min_time = 1
-# style = "bg:#E0DEF4 fg:#001220"
-# format = "[[](bold bg:none fg:#E0DEF4)󱇻  $duration[](bg:#none fg:#E0DEF4 )]($style)"
-# disabled = false
-
-# KANAGAWA-LIGHT THEME
-[username]
-style_user = "bg:#5d57a3 fg:#d5cea3"
-format = "[[](bold bg:none fg:#5d57a3) [](bg:#b35b79 fg:#5d57a3)]($style)"
-disabled = false
-show_always = true
-
-[directory]
-style = "bg:#B35B79 fg:#d5cea3"
-format = "[[](bg:#B35B79 fg:#B35B79)$path[](bg:#none fg:#B35B79)]($style)"
-truncation_length = 3
-truncate_to_repo = true
-
-[git_branch]
-# symbol = " "
-symbol = "  " # alternate
-style = "bold bg:#de9800 fg:#d5cea3"
-format = "[[ ](bg:none fg:#de9800)$symbol$branch[](bg:none fg:#de9800 )]($style)"
 
 [character]
-success_symbol = "[󰜴](#6e915f bold)"
-error_symbol = "[󰜴](#d7474b bold)"
+success_symbol = '[❱](bold green)'
+error_symbol = '[❱](bold red)'
 
 [cmd_duration]
-min_time = 1
-style = "bg:#43436c fg:#d5cea3"
-format = "[[](bold bg:none fg:#43436c)󱇻  $duration[](bg:#none fg:#43436c )]($style)"
+min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
+format = " took [$duration]($style)"
+
+[directory]
+truncation_length = 4
+format = "[$path]($style)[$lock_symbol]($lock_style) "
+
+[git_branch]
+format = " [$symbol$branch]($style) "
+symbol = "  "
+style = "bold yellow"
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+
+[git_status]
+conflicted = "󰞇 "
+diverged = "󱡷 ${ahead_count} 󱡷  ${behind_count} "
+untracked = "󰈉 ${count} "
+modified = "󰷨 ${count} "
+renamed = "󰾹 ${count} "
+deleted = "󰩺 ${count} "
+style = "bright-white"
+format = "$all_status$ahead_behind"
+
+[hostname]
+ssh_only = false
+format = "<[$hostname]($style)>"
+trim_at = "-"
+style = "bold dimmed white"
+disabled = true
+
+[julia]
+format = "[$symbol$version]($style) "
+symbol = "ஃ "
+style = "bold green"
+
+[memory_usage]
+format = "$symbol[${ram}( | ${swap})]($style) "
+threshold = 70
+style = "bold dimmed white"
 disabled = false
 
 
+[time]
+time_format = "%T"
+format = "󰔛  $time($style) "
+style = "bright-white"
+disabled = false
+
+[username]
+style_user = "bold dimmed blue"
+show_always = false
+
+[python]
+symbol = " "
+style = "dimmed green"
+
+[c]
+symbol = " "
+style = "dimmed gray"
+
+
+[lua]
+symbol=" "
+style = "dimmed blue"
+
+[rust]
+symbol = "rust "
+style = "dimmed orange"
+
+[golang]
+symbol = "󰟓  "
+style = "dimmed blue"
+
+[nodejs]
+format = " [󰌞  $version](dimmed yellow) "
+
+[java]
+symbol = " "
+style = "dimmed red"

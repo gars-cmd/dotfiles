@@ -1,5 +1,17 @@
+_G.__luacache_config = {
+  chunks = {
+    enable = true,
+    path = vim.fn.stdpath('cache')..'/luacache_chunks',
+  },
+  modpaths = {
+    enable = true,
+    path = vim.fn.stdpath('cache')..'/luacache_modpaths',
+  }
+}
+
 require "user.autorun"
 require "user.options"
+require "user.null-ls"
 require "user.keymaps"
 require "user.plugins"
 require "user.cmp"

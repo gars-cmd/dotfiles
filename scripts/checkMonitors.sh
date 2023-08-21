@@ -22,13 +22,14 @@ elif [ $main_screen == 1 -a $second_screen == 1 ]; then
 
 # half setup : only main_screen
 elif [ $main_screen == 1 -a $second_screen == 0 ]; then
-  xrandr --output DP-1 --primary --3440x1440
+  xrandr --output DP-1 --primary --mode 3440x1440
   echo "just main_screen"
 else
   echo "y'a une couille"
 fi
 
 nitrogen --restore
+xrandr --auto
   
 
 

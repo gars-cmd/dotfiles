@@ -12,17 +12,17 @@ return {
     {"SmiteshP/nvim-navic", dependencies = "neovim/nvim-lspconfig"},
     {
         "SmiteshP/nvim-navbuddy",
-    dependencies = {
-        "neovim/nvim-lspconfig",
-        "SmiteshP/nvim-navic",
-        "MunifTanjim/nui.nvim",
-        "numToStr/Comment.nvim",        -- Optional
-        "nvim-telescope/telescope.nvim" -- Optional
-    }
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "SmiteshP/nvim-navic",
+            "MunifTanjim/nui.nvim",
+            "numToStr/Comment.nvim",        -- Optional
+            "nvim-telescope/telescope.nvim" -- Optional
+        }
     },
     --[[ "simrat39/symbols-outline.nvim", ]]
     { "ellisonleao/gruvbox.nvim", priority = 1000 },
-	{ 'rose-pine/neovim', lazy = true, name = 'rose-pine' },
+    { 'rose-pine/neovim', lazy = true, name = 'rose-pine' },
     {'sam4llis/nvim-tundra', lazy = true },
     { "EdenEast/nightfox.nvim", lazy = true },
     { "fenetikm/falcon"},
@@ -30,8 +30,8 @@ return {
     { "catppuccin/nvim",lazy = true, name = "catpuccin"},
     { "rebelot/kanagawa.nvim",lazy = true},
     {"gelguy/wilder.nvim", lazy = true},
-     { 'VonHeikemen/lsp-zero.nvim', dependencies = {
-            {'neovim/nvim-lspconfig',
+    { 'VonHeikemen/lsp-zero.nvim', dependencies = {
+        {'neovim/nvim-lspconfig',
             dependencies = {
                 {
                     "SmiteshP/nvim-navbuddy",
@@ -43,18 +43,18 @@ return {
                 }
             },
         }            ,
-            {'williamboman/mason.nvim'}          ,
-            {'WhoIsSethDaniel/mason-tool-installer.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
-            {'hrsh7th/nvim-cmp', lazy = true}                 ,
-            {'hrsh7th/cmp-buffer', lazy = true}               ,
-            {'hrsh7th/cmp-path', lazy = true}                 ,
-            {'saadparwaiz1/cmp_luasnip', lazy = true}         ,
-            {'hrsh7th/cmp-nvim-lsp', lazy = true}             ,
-            {'hrsh7th/cmp-nvim-lua', lazy = true}             ,
-            {'L3MON4D3/LuaSnip', version = '1.2.1' , event = 'VeryLazy' }                 ,
-            {'rafamadriz/friendly-snippets', lazy = true}     ,
-        }, lazy = true,
+        {'williamboman/mason.nvim'}          ,
+        {'WhoIsSethDaniel/mason-tool-installer.nvim'},
+        {'williamboman/mason-lspconfig.nvim'},
+        {'hrsh7th/nvim-cmp', lazy = true}                 ,
+        {'hrsh7th/cmp-buffer', lazy = true}               ,
+        {'hrsh7th/cmp-path', lazy = true}                 ,
+        {'saadparwaiz1/cmp_luasnip', lazy = true}         ,
+        {'hrsh7th/cmp-nvim-lsp', lazy = true}             ,
+        {'hrsh7th/cmp-nvim-lua', lazy = true}             ,
+        {'L3MON4D3/LuaSnip', version = '1.2.1' , event = 'VeryLazy' }                 ,
+        {'rafamadriz/friendly-snippets', lazy = true}     ,
+    }, lazy = true,
     },
     "jose-elias-alvarez/null-ls.nvim",
     "onsails/lspkind.nvim",
