@@ -118,7 +118,7 @@ keymap("n", "<C-n>", ":Ex<cr>", opts)
 -- hop
 keymap("n", "<A-w>", "<cmd>lua require'hop'.hint_words()<cr>", opts)    --move the cursor to a specific word
 keymap("n", "<A-l>", "<cmd>lua require'hop'.hint_vertical()<cr>", opts) --move the cursor in a vertical line
-keymap("n", "gf", "<cmd>lua vim.lsp.buf.format()<cr>", opts)            -- key binding to activate formatting of the code
+--[[ keymap("n", "gf", "<cmd>lua vim.lsp.buf.format()<cr>", opts)            -- key binding to activate formatting of the code ]]
 
 -- Trouble 
 keymap("n", "gt", ":TroubleToggle<cr>", opts)

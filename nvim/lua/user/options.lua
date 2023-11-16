@@ -10,7 +10,7 @@ local options = {
     mouse            = "a",                             -- allow the mouse to be used in neovim
     pumheight        = 10,                          -- pop up menu height
     showtabline      = 1,                         -- always show tabs
-    smartcase        = true,                        -- smart case
+    smartcase        = true,                        -- smart case (with one uppercase become case sensitive)
     smartindent      = true,                      -- make indenting smarter again
     splitbelow       = true,                       -- force all horizontal splits to go below current window
     splitright       = true,                       -- force all vertical splits to go to the right of current window
@@ -56,48 +56,50 @@ augroup MyColors
 autocmd!
 
 " MODIFY THE COLOR OF THE NUMBER LINE"
-autocmd ColorScheme * highlight LineNr         guibg=NONE guifg=#665c54
+autocmd ColorScheme * highlight LineNr         guibg=#000000 guifg=#665c54
 
 " TREE-NVIM BACKGROUND TO X"
 " autocmd ColorScheme * highlight NvimTreeNormal guibg=#212529 
 
 " COLOR OF THE NVIM-CMP
-autocmd ColorScheme * highlight Pmenu          guibg=NONE
+autocmd ColorScheme * highlight Pmenu          guibg=#000000
 
 "COLOR OF THE BORDER AND THE BACKGROUND OF THE BORDER
-autocmd ColorScheme * highlight FloatBorder    guibg=NONE guifg=#665c54 
+autocmd ColorScheme * highlight FloatBorder    guibg=#000000 guifg=#665c54 
 
 "OVERRIDE THE THEME BACKGROUND 
-autocmd ColorScheme * highlight Normal         guibg=NONE
+autocmd ColorScheme * highlight Normal         guibg=#000000
 
 "OVERRIDE THE THEME BACKGROUND 
-autocmd ColorScheme * highlight NonText        guibg=NONE
+autocmd ColorScheme * highlight NonText        guibg=#000000
 
 "OVERRIDE THE BG OF THE CMP POPUP
-autocmd ColorScheme * highlight NormalFloat    guibg=NONE
+autocmd ColorScheme * highlight NormalFloat    guibg=#000000
 " autocmd ColorScheme * highlight PmenuSel       guibg=#778da9
 
 " CURSOR LINE
 " autocmd ColorScheme * highlight CursorLine     guibg=#778da9
 
 "SIGN COLUMN
-autocmd ColorScheme * highlight SignColumn guibg=NONE guifg=NONE
+autocmd ColorScheme * highlight SignColumn guibg=#000000 guifg=#000000
 
 " Git 
-autocmd ColorScheme * highlight GitSignsAdd guibg=NONE guifg=#98971A
-autocmd ColorScheme * highlight GitSignsChange guibg=NONE guifg=#D79921
-autocmd ColorScheme * highlight GitSignsDelete guibg=NONE guifg=#CC241D
+autocmd ColorScheme * highlight GitSignsAdd guibg=#000000 guifg=#98971A
+autocmd ColorScheme * highlight GitSignsChange guibg=#000000 guifg=#D79921
+autocmd ColorScheme * highlight GitSignsDelete guibg=#000000 guifg=#CC241D
 
 " Telescope relative 
-autocmd ColorScheme * highlight TelescopeNormal guibg=NONE 
-autocmd ColorScheme * highlight TelescopePreviewNormal guibg=NONE 
-autocmd ColorScheme * highlight TelescopePromptNormal guibg=NONE 
-autocmd ColorScheme * highlight TelescopeResultsNormal guibg=NONE 
-autocmd ColorScheme * highlight TelescopeSelection guibg=NONE
+autocmd ColorScheme * highlight TelescopeNormal guibg=#000000
+autocmd ColorScheme * highlight TelescopePreviewNormal guibg=#000000 
+autocmd ColorScheme * highlight TelescopePromptNormal guibg=#000000 
+autocmd ColorScheme * highlight TelescopeResultsNormal guibg=#000000 
+autocmd ColorScheme * highlight TelescopeSelection guibg=#000000
 
-autocmd ColorScheme * highlight TelescopeBorder guibg=NONE guifg=#fec553
-autocmd ColorScheme * highlight TelescopePromptBorder guibg=NONE guifg=#fec553
-autocmd ColorScheme * highlight TelescopePreviewBorder guibg=NONE guifg=#fec553
+autocmd ColorScheme * highlight TelescopeBorder guibg=#000000 guifg=#fec553
+autocmd ColorScheme * highlight TelescopePromptBorder guibg=#000000 guifg=#fec553
+autocmd ColorScheme * highlight TelescopePreviewBorder guibg=#000000 guifg=#fec553
+
+autocmd ColorScheme * highlight EndOfBuffer guibg=#000000
 
 augroup end
 ]])

@@ -5,8 +5,8 @@
 format = """
 $username\
 $directory\
-$git_branch\
 $cmd_duration\
+$git_branch\
 $character\
 """
 
@@ -22,23 +22,23 @@ $character\
 # format = "[[](bold bg:none fg:#495057)󱖲 [](bg:#495057 fg:#495057)]($style)"
 # disabled = false
 # show_always = true
-#
+
 # [directory]
 # style = "bg:#495057 bold fg:#eaaa00"
 # format = "[[](bg:#495057 fg:#495057)$path[](bg:#none fg:#495057)]($style)"
 # truncation_length = 3
 # truncate_to_repo = true
-#
+
 # [git_branch]
 # # symbol = " "
 # symbol = "  " # alternate
 # style = "bold bg:#eaaa00 fg:#101d22"
 # format = "[[ ](bg:none fg:#eaaa00)$symbol$branch[](bg:none fg:#eaaa00 )]($style)"
-#
+
 # [character]
 # success_symbol = "[󰜴](#b3be5a bold)"
 # error_symbol = "[󰜴](#b74d50 bold)"
-#
+
 # [cmd_duration]
 # min_time = 1
 # style = "bg:#ff9e76 fg:#17161c"
@@ -53,8 +53,8 @@ $character\
 # show_always = true
 
 [directory]
-style = "bg:#848383 fg:#e9eaec"
-format = "[[█](bg:#848383 fg:#848383)$path[█ ](bg:#none fg:#848383)]($style)"
+style = "fg:#BDE0FE"
+# format = "[(bg:#848383 fg:#848383)$path(bg:#none fg:#848383)]($style)"
 truncation_length = 3
 truncate_to_repo = true
 
@@ -62,18 +62,17 @@ truncate_to_repo = true
 # symbol = " "
 symbol = "  " # alternate
 style = " bg:#eaaa00 fg:#101d22"
-format = "[[█](bg:none fg:#eaaa00)$symbol$branch[█ ](bg:none fg:#eaaa00 )]($style)"
+format = "[[ ](bg:none fg:#eaaa00)$symbol$branch[ ](bg:none fg:#eaaa00 )]($style)"
 
 [character]
-success_symbol = "[󰜴](#b3be5a bold)"
-error_symbol = "[󰜴](#b74d50 bold)"
+success_symbol = "[](#b3be5a bold)"
+error_symbol = "[](#b74d50 bold)"
 
 [cmd_duration]
 min_time = 1
 style = "bg:#e9eaec fg:#17161c"
-format = "[[█](bg:none fg:#e9eaec)$duration[█ ](bg:#none fg:#e9eaec )]($style)"
+format = "[[█](bg:none fg:#e9eaec)$duration[ ](bg:#none fg:#e9eaec )]($style)"
 disabled = false
-
 
 
 

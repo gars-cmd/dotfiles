@@ -1,42 +1,73 @@
 local wilder = require('wilder')
-wilder.setup({modes = {':', '/', '?'}})
+wilder.setup({ modes = { ':', '/', '?' } })
+-- Disable Python remote plugin
+wilder.set_option('use_python_remote_plugin', 0)
+
+local gradient = {
+    '#d3869b', '#c27491', '#b16386', '#a0517c', '#8f3f71',
+    '#fb4934', '#e43729', '#cc251d', '#b51212', '#9d0006',
+    '#fabd2f', '#e9ab28', '#d89a22', '#c6881b', '#b57614',
+    '#b8bb26', '#a8a920', '#99981a', '#898614', '#79740e',
+}
+
+for i, fg in ipairs(gradient) do
+    gradient[i] = wilder.make_hl('WilderGradient' .. i, 'Pmenu', { { a = 1 }, { a = 1 }, { foreground = fg } })
+end
+
+local popupmenu_renderer = wilder.popupmenu_renderer(
+    wilder.popupmenu_border_theme({
+        winblend = 20,
+        border = 'rounded',
+        empty_message = wilder.popupmenu_empty_message_with_spinner(),
+        -- }),
+        highlights = {
+            gradient = gradient, -- must be set
+            -- selected_gradient key can be set to apply gradient highlighting for the selected candidate.
+        },
+        highlighter = wilder.highlighter_with_gradient({
+            wilder.lua_fzy_highlighter(),
+        }),
+        left = {
+            ' ',
+            wilder.popupmenu_devicons(),
+            wilder.popupmenu_buffer_flags({
+                flags = ' A + ',
+                icons = { ['+'] = 'modified', a = 'active', h = 'hidden', ['%'] = 'current  ', ['#'] = 'alternate' },
+            }),
+        },
+        right = {
+            ' ',
+            wilder.popupmenu_scrollbar(),
+        },
+    })
+)
+
+local wildmenu_renderer = wilder.wildmenu_renderer({
+    highlighter = {
+        wilder.lua_pcre2_highlighter(),
+        wilder.lua_fzy_highlighter(),
+    },
+    separator = ' ¬∑ ',
+    left = { ' ', wilder.wildmenu_spinner(), ' ' },
+    right = { ' ', wilder.wildmenu_index() },
+})
+
+wilder.set_option('renderer', wilder.renderer_mux({
+    [':'] = popupmenu_renderer,
+    ['?'] = popupmenu_renderer,
+    ['/'] = popupmenu_renderer,
+    substitute = wildmenu_renderer
+}))
 
 wilder.set_option('pipeline', {
   wilder.branch(
-    wilder.python_file_finder_pipeline({
-      -- to use ripgrep : {'rg', '--files'}
-      -- to use fd      : {'fd', '-tf'}
-      file_command = {'find', '.', '-type', 'f', '-printf', '%P\n'},
-      -- to use fd      : {'fd', '-td'}
-      dir_command  = {'find', '.', '-type', 'd', '-printf', '%P\n'},
-      -- use {'cpsm_filter'} for performance, requires cpsm vim plugin
-      -- found at https://github.com/nixprime/cpsm
-      filters      = {'fuzzy_filter', 'difflib_sorter'},
+    wilder.cmdline_pipeline({
+        file_command = {'fd', '-tf'},
+        dir_command = {'fd', '-td'},
+        filter = {'fuzzy_filter', 'difflib_sorter'},
+      --[[ fuzzy = 1, ]]
+      --[[ fuzzy_filter = wilder.lua_fzy_filter(), ]]
     }),
-    wilder.cmdline_pipeline(),
-    wilder.python_search_pipeline()
-  ),
+    wilder.vim_search_pipeline()
+  )
 })
-
-
-wilder.set_option('renderer', wilder.popupmenu_renderer({
-  -- highlighter applies highlighting to the candidates
-  highlighter = wilder.basic_highlighter(),
-}))
-
-wilder.set_option('renderer', wilder.popupmenu_renderer(
-  wilder.popupmenu_border_theme({
-    highlights = {
-      border = 'Normal', -- highlight to use for the border
-    },
-    -- 'single', 'double', 'rounded' or 'solid'
-    -- can also be a list of 8 characters, see :h wilder#popupmenu_border_theme() for more details
-    border = 'rounded',
-  })
-))
-
-wilder.set_option('renderer', wilder.popupmenu_renderer({
-  highlighter = wilder.basic_highlighter(),
-  left        = {' ', wilder.popupmenu_devicons()},
-  right       = {' ', wilder.popupmenu_scrollbar()},
-}))

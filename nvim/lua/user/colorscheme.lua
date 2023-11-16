@@ -11,7 +11,7 @@
 --[[ vim.cmd('colorscheme rose-pine') ]]
 
 
---[[ ------------------------ TUNDRA ------------------------- ]]
+ ------------------------ TUNDRA ------------------------- 
 --[[]]
 --[[ require('nvim-tundra').setup({}) ]]
 --[[ vim.opt.background = 'dark' ]]
@@ -32,7 +32,7 @@
 --[[ vim.cmd('colorscheme nordic') ]]
 --
 
---[[ CATPUCCIN-LATTE ]]
+------------------------ CATPUCCIN LATTE  -------------------------
 -- require("catppuccin").setup({
 --     flavour = "latte", -- latte, frappe, macchiato, mocha
 --     background = { -- :h background
@@ -44,7 +44,7 @@
 
 
 
--- LIGHT COLORSCHEME
+------------------------ LIGHT THEMES -------------------------
 
  --[[ GRUVBOX ]]
 --[[  require("gruvbox").setup({ ]]
@@ -56,16 +56,28 @@
 -- vim.o.background = "light"
 -- vim.cmd([[colorscheme gruvbox]])
 --
- --[[ NIGHTFOX(DAWNFOX) ]]
+------------------------ NIGHTFOX DOWNFOX ------------------------- 
 --[[ require('nightfox').setup({ ]]
 --[[]]
 --[[ }) ]]
 --[[ vim.cmd("colorscheme terafox") ]]
 
+------------------------ FALCON ------------------------- 
 --[[ FALCON ]]
-vim.cmd("colorscheme falcon")
+--[[ vim.cmd("colorscheme falcon") ]]
 
---[[ KANAGAWA ]]
+------------------------ GRUBER ------------------------- 
+--[[ vim.cmd.colorscheme("gruber-darker") ]]
+
+
+
+------------------------ NEOGRUVBOX ------------------------- 
+vim.cmd.colorscheme("neogruvbox")
+
+
+
+------------------------ KANAGAWA ------------------------- 
+-- vim.cmd.colorscheme("gruber-darker")
  -- require('kanagawa').setup({
  --     colors = {                   -- add/modify theme and palette colors
  --         palette = {},
@@ -83,6 +95,6 @@ vim.cmd("colorscheme falcon")
  -- -- setup must be called before loading
  -- vim.cmd("colorscheme kanagawa-lotus")
 
--- OXOCARBON
---[[ vim.opt.background = "light" ]]
+------------------------ OXOCARBON ------------------------- 
+--[[ vim.opt.background = "dark" ]]
 --[[ vim.cmd("colorscheme oxocarbon") ]]
