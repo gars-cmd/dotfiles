@@ -1,0 +1,21 @@
+snippet	#!
+		#!/usr/bin/env bash
+
+snippet if
+		if [[ ${1:condition} ]]; then
+			${2:#statements}
+		fi
+
+snippet elif
+		elif [[ ${1:condition} ]]; then
+			${2:#statements}
+
+snippet for
+		for (( ${2:i} = 0; $2 < ${1:count}; $2++ )); do
+			${3:#statements}
+		done
+
+snippet fori
+		for ${1:needle} in ${2:haystack} ; do
+			${3:#statements}
+		done
