@@ -64,7 +64,7 @@ keymap("n", "<C-n>", ":Ex<cr>", opts)
 
 -- Play sound file the cursor is on
 keymap("n", "<leader>ps", ":call jobstart('aplay ' . expand('<cWORD>'))<CR>", opts)
-keymap("n", "<leader>pi", ":call jobstart('feh -x ' . expand('<cWORD>'))<CR>", opts)
+keymap("n", "<leader>pi", ":call jobstart('viu ' . expand('<cWORD>'))<CR>", opts)
 
 
 -- HARPOON --

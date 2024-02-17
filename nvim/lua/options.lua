@@ -21,7 +21,7 @@ vim.opt.backup = true
 vim.opt.clipboard = "unnamedplus"
 vim.g.mapleader = " "
 vim.opt.background = "dark"
-
+vim.opt.cmdheight = 0
 -- Navigate vim panes better
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")

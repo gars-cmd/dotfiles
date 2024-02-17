@@ -1,0 +1,22 @@
+return {
+  'ibhagwan/fzf-lua',
+	event = "VeryLazy",
+	dependencies = { 'nvim-tree/nvim-web-devicons' },
+  keys = {
+    { "<A-f>",  function() require("fzf-lua").files() end,           desc = "Find files" },
+    { "<A-k>",  function() require("fzf-lua").keymaps() end,         desc = "Search keymaps" },
+    { "<A-g>",  function() require("fzf-lua").live_grep() end,         desc = "Search keymaps" },
+    { "<A-s>",  function() require("fzf-lua").treesitter() end,      desc = "Search treesitter" },
+  },
+  config = function()
+    local fzf = require('fzf-lua')
+		fzf.setup({
+      keymap = {
+        fzf = {
+          ['CTRL-Q'] = 'select-all+accept',
+        },
+      },
+    })
+    fzf.register_ui_select()
+  end,
+}
