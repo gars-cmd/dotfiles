@@ -1,89 +1,67 @@
 return {
     "nvim-lualine/lualine.nvim",
-    dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
-    config = function ()
-    local colors = {
-        bg = "#191d24",
-        fg = "#fbf1c7",
-    }
-    local theme = {
-        -- normal = {
-        --     a  = { fg = colors.fg, bg = colors.bg },
-        --     b  = { fg = colors.fg, bg  = colors.bg },
-        --     c  = { fg = colors.fg, bg = colors.bg },
-        -- },
+    dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
+    config = function()
+        local colors = {
+            bg = "#191d24",
+            fg = "#fbf1c7",
+        }
 
-        -- inactive = {
-        --     a  = { fg = colors.fg, bg = colors.bg },
-        --     b  = { fg = colors.fg, bg  = colors.bg },
-        --     c  = { fg = colors.fg, bg = colors.bg },
-        -- },
+        local space = {
+            function()
+                return " "
+            end,
+            color = { bg = colors.bg, fg = colors.fg },
+        }
 
-        -- insert  = { a = { fg = colors.fg, bg = colors.bg } },
-        -- visual  = { a = { fg = colors.fg, bg = colors.bg } },
-        -- replace = { a = { fg = colors.fg, bg = colors.bg } },
-    }
+        local filename = {
+            "filename",
+            color = { bg = colors.bg, fg = colors.fg },
+        }
 
-    local space = {
-        function()
-            return " "
-        end,
-        color = { bg =colors.bg, fg = colors.fg},
-    }
+        local filetype = {
+            "filetype",
+            icon_only = true,
+            colored = true,
+            color = { bg = colors.bg },
+        }
 
-    local filename = {
-        'filename',
-        color = { bg = colors.bg, fg = colors.fg },
-    }
+        local position = {
+            "fileformat",
+            symbols = {
+                unix = "",
+            },
+            color = { bg = colors.bg, fg = colors.fg },
+        }
 
-    local filetype = {
-        "filetype",
-        icon_only = true,
-        colored   = true,
-        color     = { bg   = colors.bg },
-    }
+        local location = {
+            "location",
+            color = { bg = colors.bg, fg = colors.fg },
+        }
 
-    local position = {
-        'fileformat',
-        symbols = {
-            unix = '',
-        },
-        color     = { bg   = colors.bg, fg = colors.fg },
-    }
+        local branch = {
+            "branch",
+            color = { bg = colors.bg, fg = colors.fg },
+        }
 
-    local location = {
-        'location',
-        color     = { bg   = colors.bg, fg = colors.fg },
-    }
+        local diff = {
+            "diff",
+            color = { bg = colors.bg, fg = colors.fg },
+        }
 
-    local branch = {
-        'branch',
-        color     = { bg   = colors.bg, fg = colors.fg },
-    }
+        local function harpoon_component()
+            local mark_idx = require("harpoon.mark").get_current_index()
+            local total_marks = require("harpoon.mark").get_length()
+            if mark_idx == nil then
+                return ""
+            end
 
-    local diff = {
-        "diff",
-        color     = { bg   = colors.bg, fg = colors.fg},
-    }
-
-    local function harpoon_component()
-        local mark_idx = require("harpoon.mark").get_current_index()
-        local total_marks = require("harpoon.mark").get_length()
-        if mark_idx == nil then
-            return ""
+            return string.format("󱡅  %d/%d", mark_idx, total_marks)
         end
-
-        return string.format("󱡅  %d/%d", mark_idx, total_marks)
-        end
-
-        -- local modes = {
-        --     'mode', fmt = function(str) return str:sub(1, 1) end,
-        --     color     = { bg     = colors.bg, fg = colors.fg },
-        -- }
 
         local function getLspName()
-            local msg     = 'No Active Lsp'
-            local buf_ft  = vim.api.nvim_buf_get_option(0, 'filetype')
+            local msg = "No Active Lsp"
+            local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
             local clients = vim.lsp.get_active_clients()
             if next(clients) == nil then
                 return msg
@@ -98,32 +76,32 @@ return {
         end
 
         local dia = {
-            'diagnostics',
-            color     = { bg   = colors.bg, fg = colors.fg},
+            "diagnostics",
+            color = { bg = colors.bg, fg = colors.fg },
         }
 
         local lsp = {
             function()
                 return getLspName()
             end,
-            color     = { bg   = colors.bg, fg = colors.fg },
+            color = { bg = colors.bg, fg = colors.fg },
         }
-        require('lualine').setup({
+        require("lualine").setup({
             options = {
-                icons_enabled        = true,
-                theme                = 'auto',
-                component_separators = { left = '', right = '' },
-                section_separators   = { left = '', right = '' },
+                icons_enabled = true,
+                theme = "auto",
+                component_separators = { left = "", right = "" },
+                section_separators = { left = "", right = "" },
                 always_divide_middle = true,
-                globalstatus         = true,
+                globalstatus = true,
             },
             sections = {
-                lualine_a = { 'mode'
+                lualine_a = {
+                    "mode",
                     -- modes,
                 },
                 lualine_b = {
                     space,
-
                 },
                 lualine_c = {
                     filename,
@@ -144,12 +122,12 @@ return {
                 lualine_z = {
                     dia,
                     lsp,
-                }
+                },
             },
             inactive_sections = {
-                lualine_c = { 'filename' },
-                lualine_x = { 'location' },
-            }
+                lualine_c = { "filename" },
+                lualine_x = { "location" },
+            },
         })
-    end
+    end,
 }

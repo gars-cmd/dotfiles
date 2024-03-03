@@ -11,10 +11,10 @@ return {
                     left_bottom = "└",
                     right_arrow = "─",
                 },
-                style = "#fabd2f"
+                style = "#ffffff"
             },
             line_num = {
-                style = "#fabd2f"
+                style = "#ffffff"
             },
             blank = {
                 chars = {

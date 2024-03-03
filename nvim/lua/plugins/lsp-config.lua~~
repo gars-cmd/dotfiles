@@ -26,9 +26,6 @@ return {
             lspconfig.bashls.setup({
                 capabilities = capabilities,
             })
-            lspconfig.clangd.setup({
-                capabilities = capabilities,
-            })
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
                 settings = {
@@ -57,7 +54,7 @@ return {
             vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
             vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
             vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {})
-            vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, {})
+            vim.keymap.set("i", "<leader>h", vim.lsp.buf.signature_help, {})
         end,
     },
 }

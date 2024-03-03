@@ -38,8 +38,8 @@ keymap("v", "p", '"_dP', opts)
 -- Visual Block --
 
 -- Move text up and down
-keymap("v", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("v", "K", ":move '<-2<CR>gv-gv", opts)
+keymap("v", "J", ":move '>+1<CR>gv=gv", opts)
+keymap("v", "K", ":move '<-2<CR>gv=gv", opts)
 
 
 -- ThePrimeagen tip to center CTRL u (go half up) and CTRL d (go half down)

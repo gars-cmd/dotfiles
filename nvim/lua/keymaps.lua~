@@ -38,8 +38,8 @@ keymap("v", "p", '"_dP', opts)
 -- Visual Block --
 
 -- Move text up and down
-keymap("v", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("v", "K", ":move '<-2<CR>gv-gv", opts)
+keymap("v", "J", ":move '>+1<CR>gv=gv", opts)
+keymap("v", "K", ":move '<-2<CR>gv=gv", opts)
 
 
 -- ThePrimeagen tip to center CTRL u (go half up) and CTRL d (go half down)
@@ -64,7 +64,7 @@ keymap("n", "<C-n>", ":Ex<cr>", opts)
 
 -- Play sound file the cursor is on
 keymap("n", "<leader>ps", ":call jobstart('aplay ' . expand('<cWORD>'))<CR>", opts)
-keymap("n", "<leader>pi", ":call jobstart('viu ' . expand('<cWORD>'))<CR>", opts)
+keymap("n", "<leader>pi", ":call jobstart('feh -x ' . expand('<cWORD>'))<CR>", opts)
 
 
 -- HARPOON --
