@@ -9,6 +9,7 @@ return {
             "saadparwaiz1/cmp_luasnip",
             "rafamadriz/friendly-snippets",
             "hrsh7th/cmp-buffer",
+             "hrsh7th/cmp-cmdline",
         },
     },
     {
@@ -18,26 +19,6 @@ return {
             require("luasnip.loaders.from_snipmate").lazy_load()
 
             -- SETUP FOR COMMAND-LINE --
-            cmp.setup.cmdline("/", {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = {
-                    { name = "buffer" },
-                },
-            })
-
-            cmp.setup.cmdline(":", {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources({
-                    { name = "path" },
-                }, {
-                    {
-                        name = "cmdline",
-                        option = {
-                            ignore_cmds = { "Man", "!" },
-                        },
-                    },
-                }),
-            })
 
             -- MAIN -SETUP --
             cmp.setup({
@@ -46,6 +27,28 @@ return {
                         require("luasnip").lsp_expand(args.body)
                     end,
                 },
+
+                cmp.setup.cmdline("/", {
+                    mapping = cmp.mapping.preset.cmdline(),
+                    sources = {
+                        { name = "buffer" },
+                    },
+                }),
+
+                cmp.setup.cmdline(":", {
+                    mapping = cmp.mapping.preset.cmdline(),
+                    sources = cmp.config.sources({
+                        { name = "path" },
+                    }, {
+                        {
+                            name = "cmdline",
+                            option = {
+                                ignore_cmds = { "Man", "!" },
+                            }
+                        }
+                    })
+                }),
+
                 window = {
                     completion = cmp.config.window.bordered(),
                     documentation = cmp.config.window.bordered(),
@@ -60,11 +63,11 @@ return {
                     ["<C-k>"] = cmp.mapping.select_prev_item(),
                 }),
                 sources = cmp.config.sources({
-                    { name = "nvim_lsp" },
-                    { name = "luasnip" }, -- For luasnip users.
+                    { name = "nvim_lsp", max_item_count = 10 },
+                    { name = "luasnip",  max_item_count = 3 }, -- For luasnip users.
                     { max_item_count = 7 },
                 }, {
-                    { name = "buffer" },
+                    { name = "buffer", max_item_count = 5 },
                 }),
             })
         end,

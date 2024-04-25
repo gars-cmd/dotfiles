@@ -12,13 +12,15 @@ return {
                 null_ls.builtins.formatting.isort,
                 null_ls.builtins.formatting.gofumpt,
                 null_ls.builtins.formatting.goimports_reviser,
-                null_ls.builtins.formatting.golines,
 
 
+                -- null_ls.builtins.diagnostics.flake8,
                 null_ls.builtins.diagnostics.cppcheck,
+                -- null_ls.builtins.diagnostics.luacheck,
                 null_ls.builtins.diagnostics.mypy,
 
-                null_ls.builtins.code_actions.cspell,
+                -- null_ls.builtins.code_actions.shellcheck,
+                -- null_ls.builtins.code_actions.cspell,
 
 			},
 		})
